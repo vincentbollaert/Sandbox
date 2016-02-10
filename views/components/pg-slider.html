@@ -1,0 +1,21 @@
+<div class="slider-wrap">
+
+    <div class="slider-arrow
+                slider-arrow--prev
+                js-slide-prev">
+    </div>
+    <div class="slider-arrow
+                slider-arrow--next
+                js-slide-next">
+    </div>
+
+    <ul class="slider">
+        <li ng-repeat="person in people"
+         class="slider__slide"
+         ng-click="selectPerson(person)">
+            <div class="slider__slide__title">
+                {{ person.first }}
+            </div>
+        </li>
+    </ul>
+</div>

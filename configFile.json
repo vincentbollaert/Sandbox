@@ -1,0 +1,17 @@
+{
+  "dev": {
+    "environmentConfig": {
+      "api": "http://devapilocation"
+    }
+  },
+  "qa": {
+    "environmentConfig": {
+      "api": "http://qaapilocation"
+    }
+  },
+  "staging": {
+    "environmentConfig": {
+      "api": "http://stagingapilocation"
+    }
+  }
+}

@@ -1,0 +1,159 @@
+// --------------------------------------------------------------------------
+// Base styles and reset overrides
+// --------------------------------------------------------------------------
+
+
+// Var setup
+// --------------------------------------------------------------------------
+$b-font-family: 'GillSans', sans-serif;
+$b-font-size: 14px;
+$b-line-height: 1.4;
+$b-color-text: #373636;
+$b-color-link: #373636;
+$b-color-placeholder: #eee;
+$b-color-bg: #006237; // green
+$b-color-bg-alt: #373636; // dark grey
+$b-color-highlighting: $b-color-bg;
+
+
+// General
+// --------------------------------------------------------------------------
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    color: $b-color-text;
+    font-family: $b-font-family;
+    font-size: $b-font-size;
+    line-height: $b-line-height;
+}
+
+button {
+    font-family: $b-font-family;
+    font-size: $b-font-size;
+}
+
+dt,
+dd {
+    margin: 0;
+    width: 50%;
+}
+
+dt {
+    float: left;
+    clear: left;
+}
+
+dd {
+    float: right;
+    clear: right;
+    text-align: right;
+}
+
+ol,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+dl {
+    margin: 0;
+}
+
+li {
+    display: inline-block;
+    list-style: none;
+}
+
+a {
+    color: $b-color-link;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+        color: $b-color-link;
+    }
+
+    &:focus,
+    &:active {
+        outline: 0;
+    }
+}
+
+p {
+    margin: 0;
+}
+
+em {
+    font-style: normal;
+}
+
+figure img {
+    max-width: 100%;
+}
+
+img {
+    display: block;
+    border: none;
+}
+
+table {
+    border-spacing: 0;
+    table-layout: fixed;
+}
+
+th {
+    text-align: left;
+    font-weight: normal;
+}
+
+
+// Headers
+// --------------------------------------------------------------------------
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+    line-height: 1;
+    font-weight: normal;
+}
+
+
+// Inputs
+// --------------------------------------------------------------------------
+body,
+input,
+textarea {
+    color: $b-color-text;
+}
+
+select {
+    color: $b-color-text;
+    cursor: pointer;
+}
+
+input,
+textarea,
+select {
+    &:focus {
+        outline-color: $b-color-link;
+    }
+}
+
+input {
+    &::-ms-clear {
+        display: none;
+    }
+}

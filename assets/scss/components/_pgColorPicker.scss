@@ -1,0 +1,40 @@
+$item-s: 20px;
+.pg-color-picker {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    padding: 10px;
+    background-color: #eee;
+    transform: translate(100%, -50%);
+    transition: transform 0.3s ease;
+
+    &.is-active {
+        transform: translate(0, -50%);
+    }
+
+    &__list {
+
+        &__item {
+            margin: 1px;
+            float: left;
+            width: $item-s;
+            height: $item-s;
+            background-color: #ddd;
+            cursor: pointer;
+
+            &:nth-child(4n + 1) {
+                clear: left;
+            }
+        }
+    }
+
+    &__toggle {
+        position: absolute;
+        top: 0;
+        right: 100%;
+        width: 40px;
+        height: 40px;
+        background-color: #444;
+        cursor: pointer;
+    }
+}

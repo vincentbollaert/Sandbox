@@ -1,0 +1,24 @@
+// --------------------------------------------------------------------------
+// Base scrollbars
+// --------------------------------------------------------------------------
+
+%scrollbars {
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+        border: 0;
+    }
+
+    &::-webkit-scrollbar-track {
+        border-left: 1px solid #E8E8E8;
+        background-color: #F0F0F0;
+        width: 10px;
+        display: inline-block;
+    }
+
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #fff;
+        border-left: 1px solid #E8E8E8;
+    }
+}

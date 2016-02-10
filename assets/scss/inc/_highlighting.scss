@@ -1,0 +1,15 @@
+// --------------------------------------------------------------------------
+// Base highlighting
+// --------------------------------------------------------------------------
+
+::-moz-selection {
+	background: $b-color-highlighting;
+	color: white;
+	text-shadow: none;
+}
+
+::selection {
+	background: $b-color-highlighting;
+	color: white;
+	text-shadow: none;
+}

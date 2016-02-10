@@ -1,0 +1,21 @@
+// --------------------------------------------------------------------------
+// Custom fonts and font classes
+// --------------------------------------------------------------------------
+
+
+// @import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400,500);
+// @import url(https://fonts.googleapis.com/css?family=Cabin:400,700);
+
+// do not use these unless you are importing a Google font
+// $t-thin: 100;
+// $t-light: 300;
+$t-normal: 400;
+$t-bold: 700;
+
+.t-normal {
+    font-weight: normal;
+}
+
+.t-bold {
+    font-weight: $t-bold;
+}

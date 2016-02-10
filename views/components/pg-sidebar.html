@@ -1,0 +1,20 @@
+<div class="pgSidebar"
+ ng-class="{ 'is-active': showSidebar }">
+
+    <ul class="pgSidebar__list">
+        <li ng-repeat="sidebarItem in sidebarItems"
+         class="pgSidebar__list__item">
+            {{ sidebarItem.item }}
+
+            <ul class="pgSidebar__sublist">
+                <li ng-repeat="sidebarSubItem in sidebarItem.subItems"
+                 class="pgSidebar__sublist__item">
+                    {{ sidebarSubItem }}
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <!-- <div class="pg-color-picker__toggle"
+     ng-click="showColorPicker = !showColorPicker">
+    </div> -->
+</div>

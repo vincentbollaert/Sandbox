@@ -1,0 +1,55 @@
+// --------------------------------------------------------------------------
+// Components
+// --------------------------------------------------------------------------
+@import "pgColorPicker";
+@import "pgSidebar";
+
+$slider-h: 150px;
+$slider-arrow-w: 50px;
+.slider-wrap {
+    position: fixed;
+    bottom: 0;
+    padding: 0 $slider-arrow-w;
+    width: 100%;
+    height: $slider-h;
+    background-color: #eee;
+    transform: translateY(100px);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+        transform: translateY(0);
+        background-color: #0697FF;
+    }
+}
+
+    .slider-arrow {
+        z-index: 1;
+        position: absolute;
+        height: 100%;
+        width: $slider-arrow-w;
+        background-color: green;
+        cursor: pointer;
+
+        &--prev {
+            left: 0;
+        }
+
+        &--next {
+            right: 0;
+        }
+    }
+
+    .slider {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        transition: transform 0.3s ease;
+
+        &__slide {
+            flex: none;
+            flex-basis: 20%;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+        }
+    }

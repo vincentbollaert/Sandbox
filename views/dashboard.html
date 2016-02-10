@@ -1,0 +1,20 @@
+<div class="pg-content"
+ ng-style="{ 'backgroundColor': selectedColor.name }">
+
+    <pg-sidebar></pg-sidebar>
+      
+    <pg-slider-detail
+     selected-person="selectedPerson">
+    </pg-slider-detail>
+
+    <pg-color-picker
+     colors="colors"
+     select-color="selectColor">
+    </pg-color-picker>
+
+    add a compare widget - you select from a dropdown or series of tags, and compare the selected specific val to the others'
+    <pg-slider
+     people="people"
+     select-person="selectPerson">
+    </pg-slider>
+</div>

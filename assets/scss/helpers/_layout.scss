@@ -1,0 +1,164 @@
+// --------------------------------------------------------------------------
+// Layout
+// --------------------------------------------------------------------------
+
+
+// Layout position
+// --------------------------------------------------------------------------
+
+.lp-relative {
+	position: relative;
+}
+
+.lp-absolute {
+	position: absolute;
+}
+
+.lp-fixed {
+	position: fixed;;
+}
+
+.lp-static {
+	position: static;
+}
+
+
+// Layout floats
+// --------------------------------------------------------------------------
+
+.lf-left {
+	float: left;
+}
+
+.lf-right {
+	float: right;
+}
+
+
+// Layout text
+// --------------------------------------------------------------------------
+
+.lt-left {
+	text-align: left;
+}
+
+.lt-right {
+	text-align: right;
+}
+
+.lt-center {
+	text-align: center;
+}
+
+.lt-center-not-lg {
+    text-align: center;
+
+    // @include bp(lg) {
+    //     text-align: left;
+    // }
+}
+
+
+// Layout vertical align
+// --------------------------------------------------------------------------
+
+.lv-middle {
+	vertical-align: middle;
+}
+
+.lv-bottom {
+	vertical-align: bottom;
+}
+
+.lv-top {
+	vertical-align: top;
+}
+
+
+// Layout block
+// --------------------------------------------------------------------------
+
+.lb-inline {
+	display: inline-block;
+}
+
+.lb {
+	display: block;
+}
+
+
+// Layout width
+// --------------------------------------------------------------------------
+
+.lw-full {
+    width: 100%;
+}
+
+// .lw-three-quarter {
+//     @include bp(lg) {
+//         float: left;
+//         width: 75%;
+//     }
+// }
+//
+// .lw-half-lg {
+//     @include bp(lg) {
+//         width: 50%;
+//         float: left;
+//
+//         & ~ .lw-half {
+//             float: right;
+//         }
+//     }
+// }
+//
+// .lw-half {
+//     width: 50%;
+//     float: left;
+//
+//     & ~ .lw-half {
+//         float: right;
+//     }
+// }
+//
+// .lw-third {
+//     @include bp(lg) {
+//         width: 33.333%;
+//         float: left;
+//     }
+// }
+//
+// .lw-quarter {
+//     @include bp(lg) {
+//         float: left;
+//         width: 25%;
+//     }
+// }
+
+
+// Spacing - nudge
+// --------------------------------------------------------------------------
+
+$nudge-name-list: 'xsm', 'sm', 'md', 'lg';
+$nudge-size-list: 5px, 10px, 15px, 20px;
+
+@for $i from 1 through length($nudge-name-list) {
+	$size-name: nth($nudge-name-list, $i);
+	$size: nth($nudge-size-list, $i);
+
+	.nudge-top-#{$size-name} {
+		margin-top: $size;
+	}
+
+	.nudge-right-#{$size-name} {
+		margin-right: $size;
+	}
+
+	.nudge-bottom-#{$size-name} {
+		margin-bottom: $size;
+	}
+
+	.nudge-left-#{$size-name} {
+		margin-left: $size;
+	}
+}
