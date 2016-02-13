@@ -23,6 +23,12 @@
                             if (option === 'partial') scope.isDocked.full = false;
                             scope.isDocked[option] = !scope.isDocked[option];
                         };
+
+                        scope.close = () => {
+                            scope.isDocked.partial = false;
+                            scope.isDocked.full = false;
+                            scope.selectedPerson = false;
+                        };
                     }
                 };
             }
