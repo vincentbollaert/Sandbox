@@ -1,7 +1,10 @@
 <div class="pg-content"
  ng-style="{ 'backgroundColor': selectedColor.name }">
 
-    <pg-sidebar></pg-sidebar>
+    <pg-sidebar
+     people-doc-length="peopleDocLength">
+
+    </pg-sidebar>
 
     <pg-slider-detail
      selected-person="selectedPerson">
@@ -14,6 +17,7 @@
 
     <pg-slider
      people-doc="peopleDoc"
-     select-person="selectPerson">
+     select-person="selectPerson"
+     selected-person="selectedPerson">
     </pg-slider>
 </div>

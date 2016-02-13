@@ -2,18 +2,21 @@
 
     <div class="slider-arrow
                 slider-arrow--prev
-                js-slide-prev">
-        prev
+                js-slide-prev"
+     ng-click="slideNavigate('prev')">
+        <i class="icon icon-left-open slider-arrow__icon"></i>
     </div>
     <div class="slider-arrow
                 slider-arrow--next
-                js-slide-next">
-        next
+                js-slide-next"
+     ng-click="slideNavigate('next')">
+        <i class="icon icon-right-open slider-arrow__icon"></i>
     </div>
-<!-- {{peopleDoc}} -->
+
     <ul class="slider">
         <li ng-repeat="person in peopleDoc"
          class="slider__slide"
+         ng-class="{ 'is-active': person._id === selectedPerson._id }"
          ng-click="selectPerson(person)">
             <div class="slider__slide__title">
                 {{ person.name.first }}

@@ -9,7 +9,7 @@
     top: 50%;
     left: 200px;
     transform: translateY(-42%);;
-    width: 400px;
+    width: 450px;
     height: 460px;
     transition: opacity 0.2s ease,
                 visibility 0.3s ease,
@@ -96,7 +96,7 @@
         &__list {
             &__item {
                 color: #fff;
-                padding: 10px;
+                padding: 10px 15px;
                 width: 150px;
                 cursor: pointer;
 
@@ -112,12 +112,17 @@
     }
 
     &__wrap {
+        @extend %scrollbars;
         z-index: 1;
         position: relative;
         padding: $spacing;
         height: 100%;
         background-color: #fff;
     }
+
+        &__section {
+            margin-top: $spacing;
+        }
 
         &__header {
             margin-bottom: $spacing;
@@ -143,6 +148,8 @@
         }
 
         &__categories {
+            padding-bottom: $spacing;
+            border-bottom: 1px solid #E8E8E8;
 
             &__item {
                 position: relative;
@@ -171,8 +178,8 @@
             &__item {
                 width: 50%;
                 float: left;
-                padding: 0 $spacing 10px;
-                line-height: 1;
+                padding: 0 $spacing 0;
+                line-height: 25px;
 
                 &:nth-child(2n) {
                     border: none;

@@ -30,7 +30,7 @@ $slider-arrow-w: 50px;
         line-height: $slider-h;
         width: $slider-arrow-w;
         text-align: center;
-        font-size: 11px;
+        font-size: 16px;
         text-transform: uppercase;
         background-color: #fff;
         color: #ccc;
@@ -45,7 +45,7 @@ $slider-arrow-w: 50px;
             cursor: pointer;
 
             &:hover {
-                color: #1CBCDA;
+                color: $color;
             }
         }
     }
@@ -65,9 +65,13 @@ $slider-arrow-w: 50px;
             text-align: center;
             cursor: pointer;
 
+            &.is-active {
+                color: $color;
+            }
+
             &:hover {
                 .slider__slide__title {
-                    color: #1CBCDA;
+                    color: $color;
                 }
             }
         }

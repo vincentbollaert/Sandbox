@@ -149,7 +149,7 @@ input,
 textarea,
 select {
     &:focus {
-        outline-color: $b-color-link;
+        outline: none;
     }
 }
 

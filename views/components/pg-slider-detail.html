@@ -15,15 +15,14 @@
     <nav class="slider-detail__nav">
         <ul class="slider-detail__nav__list">
             <li class="slider-detail__nav__list__item">
-                add
+                Financials
             </li>
-                <li class="slider-detail__nav__list__item">
-                    add
-                </li>
-                    <li class="slider-detail__nav__list__item">
-                        add
-                    </li>
-
+            <li class="slider-detail__nav__list__item">
+                Relationships
+            </li>
+            <li class="slider-detail__nav__list__item">
+                Graphs
+            </li>
         </ul>
     </nav>
     <!-- <div ng-if="selectedPerson" -->
@@ -34,7 +33,7 @@
     <div class="slider-detail__wrap">
 
         <header class="slider-detail__header">
-            First name: {{ selectedPerson.name.first }}
+            {{ selectedPerson.name.first }} {{ selectedPerson.name.last }}
 
             <i class="icon
                       slider-detail__header__icon
@@ -45,13 +44,13 @@
                       slider-detail__header__icon
                       icon-resize-full-alt"
              ng-class="{ 'slider-detail__header__icon--is-docked': isDocked.full }"
-             ng-click="detailDock('full')">
+             ng-click="dock('full')">
             </i>
             <i class="icon
                       slider-detail__header__icon
                       icon-resize-full"
              ng-class="{ 'slider-detail__header__icon--is-docked': isDocked.partial }"
-             ng-click="detailDock('partial')"></i>
+             ng-click="dock('partial')"></i>
         </header>
 
         <ul class="slider-detail__categories  cf">
@@ -83,42 +82,104 @@
 
         <ul class="slider-detail__stats cf">
             <li class="slider-detail__stats__item">
-                Name
+                Name:
                 <div class="slider-detail__stats__item__value">
-                    Vincent Bollaert
+                    {{ selectedPerson.name.first }} {{ selectedPerson.name.last }}
                 </div>
             </li>
-                <li class="slider-detail__stats__item">
-                    Name
-                    <div class="slider-detail__stats__item__value">
-                        Vincent Bollaert
+            <li class="slider-detail__stats__item">
+                Gender:
+                <div class="slider-detail__stats__item__value">
+                    <!-- <div class="input-container">
+                        <input class="checkbox"
+                         ng-click="setGender()"
+                         ng-model="company.selected"
+                         type="checkbox"
+                         id="checkbox">
+                        <label for="checkbox"
+                         ng-click="setGender(company, $index, true)"></label>
+                    </div> -->
+                    <label class="label"
+                     for="gender-m">
+                        male
+                    </label>
+                    <div class="input-container">
+                        <input class="radio"
+                         ng-click="setGender()"
+                         ng-model="company.selected"
+                         type="radio"
+                         id="gender-m"
+                         name="radio">
+
+                        <label for="gender-m"
+                         ng-click="setGender()">
+                        </label>
                     </div>
-                </li>
-                    <li class="slider-detail__stats__item">
-                        Name
-                        <div class="slider-detail__stats__item__value">
-                            Vincent Bollaert
-                        </div>
-                    </li>
-                        <li class="slider-detail__stats__item">
-                            Name
-                            <div class="slider-detail__stats__item__value">
-                                Vincent Bollaert
-                            </div>
-                        </li>
-                            <li class="slider-detail__stats__item">
-                                Name
-                                <div class="slider-detail__stats__item__value">
-                                    Vincent Bollaert
-                                </div>
-                            </li>
-                                <li class="slider-detail__stats__item">
-                                    Name
-                                    <div class="slider-detail__stats__item__value">
-                                        Vincent Bollaert
-                                    </div>
-                                </li>
+
+                    <label class="label"
+                     for="gender-f">
+                        female
+                    </label>
+                    <div class="input-container">
+                        <input class="radio"
+                         ng-click="setGender()"
+                         ng-model="company.selected"
+                         type="radio"
+                         id="gender-f"
+                         name="radio">
+
+                        <label for="gender-f"
+                         ng-click="setGender()">
+                        </label>
+                    </div>
+                </div>
+            </li>
+            <li class="slider-detail__stats__item">
+                Company:
+                <div class="slider-detail__stats__item__value">
+                    {{ selectedPerson.company }}
+                </div>
+            </li>
+            <li class="slider-detail__stats__item">
+                Balance:
+                <div class="slider-detail__stats__item__value">
+                    {{ selectedPerson.balance }}
+                </div>
+            </li>
+            <li class="slider-detail__stats__item">
+                Age:
+                <div class="slider-detail__stats__item__value">
+                    {{ selectedPerson.age }}
+                </div>
+            </li>
         </ul>
+
+        <p class="slider-detail__section">
+            {{ selectedPerson.about }}
+        </p>
+
+        <div class="field-container">
+            <input class="field"
+            type="text"
+            name="name"
+            placeholder="placeholder input">
+        </div>
+
+        <div class="field-container">
+            <div class="field field--dd-toggle">
+                <i class="icon isAbs icon-down-open field__icon"></i>
+                Active text
+            </div>
+
+            <ul class="field__list">
+                <li class="field__list__item">
+                    tets
+                </li>
+                <li class="field__list__item">
+                    tets
+                </li>
+            </ul>
+        </div>
 
         <div class="slider-detail__placeholder">
 
