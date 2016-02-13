@@ -1,5 +1,5 @@
 <div class="slider-detail"
- ng-class="{ 'is-active': selectedPerson }">
+ ng-class="{ 'is-active': selectedPerson, 'is-docked is-docked-partial': isDocked.partial, 'is-docked is-docked-full': isDocked.full }">
 
     <div class="slider-detail__img-wrap">
         <div class="slider-detail__img-wrap__overlay">
@@ -36,11 +36,17 @@
         <header class="slider-detail__header">
             First name: {{ selectedPerson.name.first }}
 
-            <i class="icon icon-resize-full-alt"
-             ng-click="detailResize('partial')">
+            <i class="icon
+                      slider-detail__header__icon
+                      icon-resize-full-alt"
+             ng-class="{ 'slider-detail__header__icon--is-docked': isDocked.full }"
+             ng-click="detailDock('full')">
             </i>
-            <i class="icon icon-resize-full"
-             ng-click="detailResize('full')"></i>
+            <i class="icon
+                      slider-detail__header__icon
+                      icon-resize-full"
+             ng-class="{ 'slider-detail__header__icon--is-docked': isDocked.partial }"
+             ng-click="detailDock('partial')"></i>
         </header>
 
         <ul class="slider-detail__categories  cf">

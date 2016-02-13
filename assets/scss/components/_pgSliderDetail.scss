@@ -10,12 +10,19 @@
     left: 200px;
     transform: translateY(-42%);;
     width: 400px;
-    transition: opacity 0.2s ease, transform 0.3s ease;
+    height: 460px;
+    transition: opacity 0.2s ease,
+                transform 0.3s ease,
+                top 0.3s ease,
+                right 0.3s ease,
+                bottom 0.3s ease,
+                left 0.3s ease,
+                width 0.3s ease,
+                height 0.3s ease;
 
     &.is-active {
         opacity: 1;
         visibility: visible;
-        transform: translateY(-50%);
     }
 
     &__img-wrap {
@@ -106,16 +113,17 @@
     &__wrap {
         z-index: 1;
         position: relative;
-        padding: 20px;
+        padding: $spacing;
+        height: 100%;
         background-color: #fff;
     }
 
         &__header {
-            margin-bottom: 20px;
+            margin-bottom: $spacing;
             line-height: 1;
             font-size: 18px;
 
-            .icon {
+            &__icon {
                 float: right;
                 margin-left: 5px;
                 padding: 5px;
@@ -124,6 +132,10 @@
                 cursor: pointer;
 
                 &:hover {
+                    color: $color;
+                }
+
+                &--is-docked {
                     color: $color;
                 }
             }
@@ -151,12 +163,14 @@
         }
 
         &__stats {
-            margin: 20px -20px 0;
+            margin-top: $spacing;
+            margin-right: -$spacing;
+            margin-left: -$spacing;
 
             &__item {
                 width: 50%;
                 float: left;
-                padding: 0 20px 10px;
+                padding: 0 $spacing 10px;
                 line-height: 1;
 
                 &:nth-child(2n) {
@@ -177,8 +191,35 @@
         }
 
         &__placeholder {
-            margin-top: 20px;
+            margin-top: $spacing;
             background-color: #eee;
             height: 200px;
         }
+}
+
+.is-docked {
+
+    .slider-detail__nav {
+        transition: transform 0.3s ease;
+        transition-delay: 0s;
+    }
+
+    .slider-detail__img-wrap,
+    .slider-detail__nav {
+        transform: translateX(100%);
+    }
+}
+
+.is-docked-partial {
+    left: $spacing;
+    top: $spacing;
+    transform: none;
+    bottom: $slider-h + $spacing;
+    height: calc(100% - (#{ $slider-h } + #{ $spacing } * 2));
+}
+
+.is-docked-full {
+    @extend .is-docked-partial;
+    right: $spacing;
+    width: calc(100% - (#{ $spacing } * 2));
 }

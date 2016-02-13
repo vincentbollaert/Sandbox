@@ -17,15 +17,19 @@
         color: #fff;
         transform: translateX(-50%);
         transition: opacity 0.2s ease, transform 0.3s ease;
+
+        &:hover {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-50%);
+        }
     }
 
     &:hover {
-        &:hover {
-            &:before {
-                opacity: 1;
-                visibility: visible;
-                transform: translate(-50%, -5px);
-            }
+        &:before {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -5px);
         }
     }
 }
