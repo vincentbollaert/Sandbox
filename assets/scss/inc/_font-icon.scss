@@ -2,25 +2,25 @@
 // Custom font icons - ICOMOON
 // --------------------------------------------------------------------------
 
-$icon-font: 'icomoon';
-$i-color: $b-color-text;
-$i-font-size: 17px;
-
-i {
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 1;
-    font-family: $icon-font;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    font-size: $i-font-size;
-    color: inherit;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.icon {
-    @extend i;
-}
+// $icon-font: 'icomoon';
+// $i-color: $b-color-text;
+// $i-font-size: 17px;
+//
+// i {
+//     display: inline-block;
+//     vertical-align: middle;
+//     line-height: 1;
+//     font-family: $icon-font;
+//     font-style: normal;
+//     font-weight: normal;
+//     font-variant: normal;
+//     text-transform: none;
+//     font-size: $i-font-size;
+//     color: inherit;
+//     -webkit-font-smoothing: antialiased;
+//     -moz-osx-font-smoothing: grayscale;
+// }
+//
+// .icon {
+//     @extend i;
+// }

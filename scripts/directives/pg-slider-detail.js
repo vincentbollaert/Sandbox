@@ -12,9 +12,12 @@
                     replace: true,
                     templateUrl: 'views/components/pg-slider-detail.html',
 
-                    link: (scope) => {
+                    link: (scope, element) => {
                         console.log(scope, 'scope');
                         scope.test = 'test';
+                        scope.detailResize = (option) => {
+                            console.log(option, element);
+                        };
                     }
                 };
             }

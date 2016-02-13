@@ -9,10 +9,13 @@
 
     .pg-content {
         min-height: 100%;
+        background: url('../images/nature-1.jpg');
+        background-size: cover;
     }
 
 
 $slider-h: 90px;
+$color: #12C3E4;
 
 @import "pgColorPicker";
 @import "pgSidebar";

@@ -34,7 +34,13 @@
     <div class="slider-detail__wrap">
 
         <header class="slider-detail__header">
-            {{ selectedPerson.name.first }}
+            First name: {{ selectedPerson.name.first }}
+
+            <i class="icon icon-resize-full-alt"
+             ng-click="detailResize('partial')">
+            </i>
+            <i class="icon icon-resize-full"
+             ng-click="detailResize('full')"></i>
         </header>
 
         <ul class="slider-detail__categories  cf">
