@@ -7,13 +7,14 @@ $item-spacing: 20px;
     bottom: $slider-h;
     left: 0;
     width: 200px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.3);
     color: #444;
     transform: translateX(calc(-100% + #{$item-spacing}));
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 
     &:hover {
         transform: translateY(0);
+        background-color: #fff;
     }
 
     &__list {

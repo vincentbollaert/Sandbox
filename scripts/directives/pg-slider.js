@@ -8,7 +8,8 @@
                     restrict: 'E',
                     scope: {
                         peopleDoc: '=',
-                        selectPerson: '='
+                        selectPerson: '=',
+                        selectedPerson: '='
                     },
                     replace: true,
                     templateUrl: 'views/components/pg-slider.html',
@@ -24,27 +25,17 @@
                             height: slider.getBoundingClientRect().height
                         };
 
-                        sliderPrev.addEventListener('click', prev);
-                        sliderNext.addEventListener('click', next);
-
-                        function prev() { slide('prev'); }
-                        function next() { slide('next'); }
-
-                        function slide(direction) {
-
+                        scope.slideNavigate = function(direction) {
                             incrOrDecr(direction);
 
-                            console.log(sliderIncr);
-
-                            if (direction === 'prev') {
-                                console.log(dimensions.width, slider.style);
-                            }
-                            if (direction === 'next') {
-                                console.log('NEXT');
-                            }
+                            // if (direction === 'prev') {
+                            // }
+                            // if (direction === 'next') {
+                            //     // console.log('NEXT');
+                            // }
 
                             slider.style.transform = 'translateX(' + sliderIncr * dimensions.width + 'px' + ')';
-                        }
+                        };
 
                         function incrOrDecr(direction) {
                             if (direction === 'prev') {

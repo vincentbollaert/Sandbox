@@ -4,11 +4,16 @@
     angular.module('webapp.controllers')
         .controller('dashboardCtrl', ['$scope', 'dataService',
             function($scope, dataService) {
+
+                let perSlide = 5;
+
                 dataService().get().then(function(receivedData) {
-                    console.log(receivedData);
 
                     $scope.peopleDoc = receivedData;
-                    console.log($scope.peopleDoc);
+                    $scope.peopleDocLength = $scope.peopleDoc.length;
+                    $scope.slidesAmt = Math.ceil($scope.peopleDocLength / perSlide);
+
+                    console.log($scope.peopleDocLength, $scope.peopleDoc);
 
                     $scope.people = $scope.peopleDoc.map(function(x) {
                         return x.name;
