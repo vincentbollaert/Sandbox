@@ -1,0 +1,31 @@
+// --------------------------------------------------------------------------
+// Tooltips
+// --------------------------------------------------------------------------
+
+[data-title] {
+    &:before {
+        content: attr(data-title);
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        padding: 5px 8px;
+        white-space: nowrap;
+        border-radius: 2px;
+        background-color: #12C3E4;
+        color: #fff;
+        transform: translateX(-50%);
+        transition: opacity 0.2s ease, transform 0.3s ease;
+    }
+
+    &:hover {
+        &:hover {
+            &:before {
+                opacity: 1;
+                visibility: visible;
+                transform: translate(-50%, -5px);
+            }
+        }
+    }
+}

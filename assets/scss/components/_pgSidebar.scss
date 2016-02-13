@@ -2,36 +2,39 @@ $item-h: 40px;
 $item-spacing: 20px;
 $color: #12C3E4;
 .pgSidebar {
+    z-index: 1;
     position: fixed;
     top: 0;
-    bottom: 0;
+    bottom: $slider-h;
     left: 0;
-    padding: $item-spacing;
     width: 200px;
-    background-color: #eee;
-    color: #fff;
+    background-color: #fff;
+    color: #444;
     transform: translateX(calc(-100% + #{$item-spacing}));
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: transform 0.3s ease;
 
     &:hover {
-        background-color: #444;
         transform: translateY(0);
     }
 
     &__list {
+        padding: 10px 0;
+
         &__item {
             display: block;
             position: relative;
+            padding: 0 $item-spacing;
             line-height: $item-h;
-            border-bottom: 1px solid $color;
             cursor: pointer;
 
             &:hover {
                 color: $color;
 
                 .pgSidebar__sublist {
-                    display: block;
+                    opacity: 1;
+                    visibility: visible;
                     color: #fff;
+                    border-width: 5px;
                 }
             }
 
@@ -42,25 +45,17 @@ $color: #12C3E4;
     }
 
     &__sublist {
-        display: none;
+        opacity: 0;
+        visibility: hidden;
         position: absolute;
         top: 0;
         left: 100%;
         padding: $item-spacing 0;
-        border-left: 1px solid $color;
+        border-left: 0 solid #fff;
         background-color: #444;
         cursor: default;
-        transform: translate($item-spacing, -$item-spacing);
-        transition: transform 0.3s ease;
-
-        &:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 100%;
-            width: $item-spacing;
-        }
+        transform: translateY(-$item-spacing);
+        transition: border-width 0.3s ease-out;
 
         &__item {
             display: block;

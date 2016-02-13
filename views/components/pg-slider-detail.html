@@ -1,6 +1,110 @@
-<div ng-if="selectedPerson"
- class="slider-detail">
-    SELECTED NAME: {{ selectedPerson.first }}
+<div class="slider-detail"
+ ng-class="{ 'is-active': selectedPerson }">
+
+    <div class="slider-detail__img-wrap">
+        <div class="slider-detail__img-wrap__overlay">
+            <div class="slider-detail__img-wrap__overlay__icon"
+             data-title="change picture">
+            </div>
+        </div>
+        <img class="slider-detail__img-wrap__img"
+         ng-src="{{ selectedPerson.picture }}"
+         alt="">
+    </div>
+
+    <nav class="slider-detail__nav">
+        <ul class="slider-detail__nav__list">
+            <li class="slider-detail__nav__list__item">
+                add
+            </li>
+                <li class="slider-detail__nav__list__item">
+                    add
+                </li>
+                    <li class="slider-detail__nav__list__item">
+                        add
+                    </li>
+
+        </ul>
+    </nav>
+    <!-- <div ng-if="selectedPerson" -->
+    <!-- SELECTED NAME: {{ selectedPerson.first }}
     <br>
-    SELECTED SURNAME: {{ selectedPerson.last }}
+    SELECTED SURNAME: {{ selectedPerson.last }} -->
+
+    <div class="slider-detail__wrap">
+
+        <header class="slider-detail__header">
+            {{ selectedPerson.name.first }}
+        </header>
+
+        <ul class="slider-detail__categories  cf">
+            <li class="slider-detail__categories__item"
+             data-title="test title">
+            </li>
+                <li class="slider-detail__categories__item"
+                 data-title="test title">
+                </li>
+                    <li class="slider-detail__categories__item"
+                     data-title="test title">
+                    </li>
+                        <li class="slider-detail__categories__item"
+                         data-title="test title">
+                        </li>
+                            <li class="slider-detail__categories__item"
+                             data-title="test title">
+                            </li>
+                                <li class="slider-detail__categories__item"
+                                 data-title="test title">
+                                </li>
+                                    <li class="slider-detail__categories__item"
+                                     data-title="test title">
+                                    </li>
+                                        <li class="slider-detail__categories__item"
+                                         data-title="test title">
+                                        </li>
+        </ul>
+
+        <ul class="slider-detail__stats cf">
+            <li class="slider-detail__stats__item">
+                Name
+                <div class="slider-detail__stats__item__value">
+                    Vincent Bollaert
+                </div>
+            </li>
+                <li class="slider-detail__stats__item">
+                    Name
+                    <div class="slider-detail__stats__item__value">
+                        Vincent Bollaert
+                    </div>
+                </li>
+                    <li class="slider-detail__stats__item">
+                        Name
+                        <div class="slider-detail__stats__item__value">
+                            Vincent Bollaert
+                        </div>
+                    </li>
+                        <li class="slider-detail__stats__item">
+                            Name
+                            <div class="slider-detail__stats__item__value">
+                                Vincent Bollaert
+                            </div>
+                        </li>
+                            <li class="slider-detail__stats__item">
+                                Name
+                                <div class="slider-detail__stats__item__value">
+                                    Vincent Bollaert
+                                </div>
+                            </li>
+                                <li class="slider-detail__stats__item">
+                                    Name
+                                    <div class="slider-detail__stats__item__value">
+                                        Vincent Bollaert
+                                    </div>
+                                </li>
+        </ul>
+
+        <div class="slider-detail__placeholder">
+
+        </div>
+    </div>
 </div>

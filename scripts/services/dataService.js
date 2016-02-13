@@ -9,7 +9,7 @@
                     return {
                         get: () => {
                             var q = $q.defer();
-                                $http.get('https://api.myjson.com/bins/ydbh')
+                                $http.get('https://api.myjson.com/bins/y0id')
                                     .success((data) => {
                                         q.resolve(data);
                                         // q.reject('GIFT FAIL')

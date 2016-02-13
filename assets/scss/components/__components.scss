@@ -2,6 +2,20 @@
 // Components
 // --------------------------------------------------------------------------
 
+.pg-wrap {
+    min-height: 100%;
+    height: 100%;
+}
+
+    .pg-content {
+        min-height: 100%;
+    }
+
+
+$slider-h: 90px;
+
 @import "pgColorPicker";
 @import "pgSidebar";
 @import "pGslider";
+@import "pGsliderDetail";
+@import "pGtooltips";

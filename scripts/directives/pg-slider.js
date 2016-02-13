@@ -7,7 +7,7 @@
                 return {
                     restrict: 'E',
                     scope: {
-                        people: '=',
+                        peopleDoc: '=',
                         selectPerson: '='
                     },
                     replace: true,

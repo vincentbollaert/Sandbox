@@ -3,18 +3,20 @@
     <div class="slider-arrow
                 slider-arrow--prev
                 js-slide-prev">
+        prev
     </div>
     <div class="slider-arrow
                 slider-arrow--next
                 js-slide-next">
+        next
     </div>
-
+<!-- {{peopleDoc}} -->
     <ul class="slider">
-        <li ng-repeat="person in people"
+        <li ng-repeat="person in peopleDoc"
          class="slider__slide"
          ng-click="selectPerson(person)">
             <div class="slider__slide__title">
-                {{ person.first }}
+                {{ person.name.first }}
             </div>
         </li>
     </ul>

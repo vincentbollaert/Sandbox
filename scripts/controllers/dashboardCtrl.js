@@ -26,21 +26,21 @@
                 };
 
                 $scope.colors = [
-                    { name: 'red' },
-                    { name: 'blue' },
-                    { name: 'green' },
-                    { name: 'yellow' },
-                    { name: 'purple' },
-                    { name: 'gray' },
-                    { name: 'gray' },
-                    { name: 'gray' },
-                    { name: 'gray' },
-                    { name: 'gray' },
-                    { name: 'gray' },
-                    { name: 'gray' },
-                    { name: 'gray' },
-                    { name: 'gray' },
-                    { name: 'gray' }
+                    { name: '#11C596' },
+                    { name: '#39AAD9' },
+                    { name: '#49AA49' },
+                    { name: '#1CC8D3' },
+                    { name: '#D3C81B' },
+                    { name: '#e6e6e6' },
+                    { name: '#e6e6e6' },
+                    { name: '#e6e6e6' },
+                    { name: '#e6e6e6' },
+                    { name: '#e6e6e6' },
+                    { name: '#e6e6e6' },
+                    { name: '#e6e6e6' },
+                    { name: '#e6e6e6' },
+                    { name: '#e6e6e6' },
+                    { name: '#e6e6e6' }
                 ];
 
                 $scope.selectColor = (color) => {

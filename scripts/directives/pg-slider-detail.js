@@ -14,6 +14,7 @@
 
                     link: (scope) => {
                         console.log(scope, 'scope');
+                        scope.test = 'test';
                     }
                 };
             }
