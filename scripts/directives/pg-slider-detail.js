@@ -23,6 +23,8 @@
                             }]
                         };
 
+                        scope.rangeModel = 50;
+
                         scope.setOption = (option, optionParent) => {
                             if (optionParent) {
                                 scope.options[optionParent][scope.returnObjKey(option)] = !scope.options[optionParent][scope.returnObjKey(option)];

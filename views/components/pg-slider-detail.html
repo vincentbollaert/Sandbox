@@ -1,6 +1,6 @@
 <div class="slider-detail"
  ng-class="{ 'is-active': selectedPerson, 'is-docked is-docked-partial': options.dockStates.partial === true, 'is-docked is-docked-full': options.dockStates.full }">
- 
+
     <div class="slider-detail__img-wrap">
         <div class="slider-detail__img-wrap__overlay">
             <div class="slider-detail__img-wrap__overlay__icon"
@@ -81,15 +81,6 @@
             <li class="slider-detail__stats__item">
                 Gender:
                 <div class="slider-detail__stats__item__value">
-                    <!-- <div class="input-container">
-                        <input class="checkbox"
-                         ng-click="setGender()"
-                         ng-model="company.selected"
-                         type="checkbox"
-                         id="checkbox">
-                        <label for="checkbox"
-                         ng-click="setGender(company, $index, true)"></label>
-                    </div> -->
                     <label class="label"
                      for="gender-m">
                         male
@@ -125,6 +116,7 @@
                     </div>
                 </div>
             </li>
+
             <li class="slider-detail__stats__item">
                 Company:
                 <div class="slider-detail__stats__item__value">
@@ -143,14 +135,48 @@
                     {{ selectedPerson.age }}
                 </div>
             </li>
+            <li class="slider-detail__stats__item">
+                Last:
+                <div class="slider-detail__stats__item__value">
+                    <label class="label"
+                     for="checkbox">
+                        Checkbox
+                    </label>
+                    <div class="input-container">
+                        <input class="checkbox"
+                         ng-click=""
+                         ng-model="model"
+                         checked
+                         type="checkbox"
+                         id="checkbox">
+                        <label for="checkbox"
+                         ng-click="">
+                        </label>
+                    </div>
+                </div>
+            </li>
         </ul>
+
+        <div class="field-container cf">
+            <input class="range"
+             type="range"
+             name="name"
+             ng-model="rangeModel"
+             ng-value="rangeModel">
+
+            <input class="field field--range"
+             type="text"
+             name="name"
+             ng-model="rangeModel"
+             ng-value="rangeModel">
+        </div>
 
         <p class="slider-detail__section">
             {{ selectedPerson.about }}
         </p>
 
         <div class="field-container">
-            <input class="field"
+            <input class="field lw-full"
             type="text"
             name="name"
             placeholder="placeholder input">
@@ -171,6 +197,7 @@
                 </li>
             </ul>
         </div>
+
 
         <div class="slider-detail__placeholder">
 
