@@ -14,22 +14,37 @@
                     templateUrl: 'views/components/pg-slider-detail.html',
 
                     link: (scope) => {
-                        scope.isDocked = {
-                            partial: false,
-                            full: false
+                        scope.options = {
+                            open: false,
+                            dockStates: [{
+                                partial: false
+                            },{
+                                full: false
+                            }]
+                        };
+
+                        scope.setOption = (option, optionParent) => {
+                            if (optionParent) {
+                                scope.options[optionParent][scope.returnObjKey(option)] = !scope.options[optionParent][scope.returnObjKey(option)];
+                            }
+                            console.log(scope.options[optionParent][scope.returnObjKey(option)]);
                         };
 
                         scope.dock = (option) => {
-                            if (option === 'full') scope.isDocked.partial = false;
-                            if (option === 'partial') scope.isDocked.full = false;
+                            // scope.isDocked = {};
                             scope.isDocked[option] = !scope.isDocked[option];
+
+                            console.log(scope.isDocked);
                         };
 
                         scope.close = () => {
-                            scope.isDocked.partial = false;
-                            scope.isDocked.full = false;
+                            scope.isDocked = {};
                             scope.selectedPerson = false;
                         };
+
+                        scope.returnObjKey = (obj) => {
+                            return Object.keys(obj)[0];
+                        }
                     }
                 };
             }

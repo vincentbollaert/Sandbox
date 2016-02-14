@@ -1,6 +1,6 @@
 <div class="slider-detail"
- ng-class="{ 'is-active': selectedPerson, 'is-docked is-docked-partial': isDocked.partial, 'is-docked is-docked-full': isDocked.full }">
-
+ ng-class="{ 'is-active': selectedPerson, 'is-docked is-docked-partial': options.dockStates.partial === true, 'is-docked is-docked-full': options.dockStates.full }">
+ 
     <div class="slider-detail__img-wrap">
         <div class="slider-detail__img-wrap__overlay">
             <div class="slider-detail__img-wrap__overlay__icon"
@@ -25,32 +25,23 @@
             </li>
         </ul>
     </nav>
-    <!-- <div ng-if="selectedPerson" -->
-    <!-- SELECTED NAME: {{ selectedPerson.first }}
-    <br>
-    SELECTED SURNAME: {{ selectedPerson.last }} -->
 
     <div class="slider-detail__wrap">
 
         <header class="slider-detail__header">
-            {{ selectedPerson.name.first }} {{ selectedPerson.name.last }}
+            Name: {{ selectedPerson.name.first }} {{ selectedPerson.name.last }}
+
+            <i class="icon slider-detail__header__icon"
+             ng-repeat="dockState in options.dockStates"
+             ng-click="setOption(dockState, 'dockStates')"
+             ng-class="'icon-option-' + returnObjKey(dockState)">
+            </i>
 
             <i class="icon
                       slider-detail__header__icon
-                      icon-cancel"
+                      icon-option-cancel"
              ng-click="close()">
             </i>
-            <i class="icon
-                      slider-detail__header__icon
-                      icon-resize-full-alt"
-             ng-class="{ 'slider-detail__header__icon--is-docked': isDocked.full }"
-             ng-click="dock('full')">
-            </i>
-            <i class="icon
-                      slider-detail__header__icon
-                      icon-resize-full"
-             ng-class="{ 'slider-detail__header__icon--is-docked': isDocked.partial }"
-             ng-click="dock('partial')"></i>
         </header>
 
         <ul class="slider-detail__categories  cf">
