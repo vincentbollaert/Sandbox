@@ -4,18 +4,19 @@
 
 $slider-arrow-w: 50px;
 .slider-wrap {
+    z-index: 2;
     position: fixed;
     bottom: 0;
     padding: 0 $slider-arrow-w;
     width: 100%;
     height: $slider-h;
-    background-color: #fff;
-    // transform: translateY(100px);
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(calc(100% - #{$spacing}));
     transition: transform 0.3s ease, background-color 0.3s ease;
 
     &:hover {
-        // transform: translateY(0);
-        // background-color: #0697FF;
+        transform: translateY(0);
+        background-color: #fff;
         .slider-arrow {
             opacity: 1;
         }
@@ -34,6 +35,7 @@ $slider-arrow-w: 50px;
         text-transform: uppercase;
         background-color: #fff;
         color: #ccc;
+        cursor: pointer;
         transition: opacity 0.3s ease, color 0.3s ease;
 
         &--prev {
