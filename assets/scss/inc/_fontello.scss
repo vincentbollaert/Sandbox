@@ -19,11 +19,14 @@
 }
 
 .icon-search:before { content: '\e800'; } /* '' */
-.icon-resize-full:before { content: '\e801'; } /* '' */
-.icon-resize-full-alt:before { content: '\e802'; } /* '' */    
+
+// DONT CHANGE
+.icon-option-partial:before { content: '\e801'; } /* '' */
+.icon-option-full:before { content: '\e802'; } /* '' */
+.icon-option-cancel:before { content: '\e805'; } /* '' */
+
 .icon-color-adjust:before { content: '\e803'; } /* '' */
 .icon-menu:before { content: '\e804'; } /* '' */
-.icon-cancel:before { content: '\e805'; } /* '' */
 .icon-right-open:before { content: '\e806'; } /* '' */
 .icon-left-open:before { content: '\e807'; } /* '' */
 .icon-down-open:before { content: '\e808'; } /* '' */

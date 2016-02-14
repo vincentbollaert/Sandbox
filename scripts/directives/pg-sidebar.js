@@ -24,8 +24,6 @@
                             item: 'contact',
                             subItems: ['one', 'two', 'three']
                         }];
-                        console.log(scope.sidebarItems[0]);
-                        console.log(scope.sidebarItems);
                     }
                 };
             }

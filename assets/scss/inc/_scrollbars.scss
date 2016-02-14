@@ -2,25 +2,27 @@
 //  Scrollbars
 // --------------------------------------------------------------------------
 
+$scrollbar-w: 10px;
 %scrollbars {
     overflow: auto;
 
     &::-webkit-scrollbar {
-        width: 10px;
-        height: 10px;
+        width: $scrollbar-w;
+        height: $scrollbar-w;
         border: 0;
     }
 
     &::-webkit-scrollbar-track {
-        border-left: 1px solid #E8E8E8;
-        background-color: #F0F0F0;
-        width: 10px;
         display: inline-block;
+        width: $scrollbar-w;
+        background-color: #F0F0F0;
+        box-shadow: inset 0px 0px 2px rgba(68, 68, 68, 0.13);
     }
 
 
     &::-webkit-scrollbar-thumb {
         background-color: #fff;
-        border-left: 1px solid #E8E8E8;
+        border: 1px solid #E8E8E8;
+        border-radius: $scrollbar-w;
     }
 }
