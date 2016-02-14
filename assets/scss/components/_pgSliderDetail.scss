@@ -120,7 +120,6 @@
 
     &__wrap {
         @extend %scrollbars;
-        z-index: 1;
         position: relative;
         padding: $spacing;
         height: 100%;
@@ -230,8 +229,8 @@
     left: $spacing;
     top: $spacing;
     transform: none;
-    bottom: $slider-h + $spacing;
-    height: calc(100% - (#{ $slider-h } + #{ $spacing } * 2));
+    bottom: $spacing;
+    height: calc(100% - #{ $spacing } * 2);
 }
 
 .is-docked-full {
