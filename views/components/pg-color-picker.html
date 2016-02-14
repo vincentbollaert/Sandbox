@@ -1,5 +1,12 @@
 <div class="pg-color-picker"
- ng-class="{ 'is-active': showColorPicker }">
+ ng-class="{ 'is-active': showColorPicker }"
+ ng-mouseenter="showColorPicker = !showColorPicker"
+ ng-mouseleave="showColorPicker = !showColorPicker">
+
+    <div class="pg-color-picker__toggle">
+        <i class="icon isAbs icon-color-adjust"></i>
+    </div>
+
     <ul class="pg-color-picker__list">
         <li ng-repeat="color in colors"
          class="pg-color-picker__list__item"
@@ -7,8 +14,4 @@
          ng-style="{ 'backgroundColor': color.name }">
         </li>
     </ul>
-    <div class="pg-color-picker__toggle"
-     ng-click="showColorPicker = !showColorPicker">
-        <i class="icon isAbs icon-color-adjust"></i>
-    </div>
 </div>
