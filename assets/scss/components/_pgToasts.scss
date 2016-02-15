@@ -1,0 +1,60 @@
+// --------------------------------------------------------------------------
+// Toasts
+// --------------------------------------------------------------------------
+$toast-h: 70px;
+.toasts {
+    position: fixed;
+    top: $spacing;
+    right: $spacing;
+    width: 300px;
+
+    &__toast {
+        position: relative;
+        margin-bottom: $spacing;
+        padding-right: $spacing;
+        padding-left: $toast-h + $spacing;
+        height: $toast-h;
+        line-height: $toast-h - 5px;
+        background-color: #fff;
+        transition: opacity 0.3s ease-out, filter 0.2s ease-out;
+
+        &.toasted {
+            opacity: 0;
+            filter: blur(5px);
+        }
+
+        &__icon-wrap {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: $toast-h;
+            background-color: #444;
+            box-shadow: 3px 0px 3px -2px rgba(0, 0, 0, 0.47);
+
+            .icon {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: #fff;
+
+                .is-error & {
+                    color: #F06666;
+                }
+
+                .is-info & {
+                    color: #8ED58E;
+                }
+            }
+        }
+
+        &__copy {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 1.2;
+            font-size: 12px;
+            color: #666;
+        }
+    }
+}
