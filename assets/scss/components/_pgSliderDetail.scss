@@ -9,23 +9,19 @@ $img-s: 150px;
     position: absolute;
     top: 50%;
     left: 200px;
-    transform: translateY(-42%);;
+    transform: translateY(-42%);
     width: 450px;
     height: 460px;
     transition: opacity 0.2s ease,
                 visibility 0.3s ease,
                 transform 0.3s ease,
-                top 0.3s ease,
-                right 0.3s ease,
-                bottom 0.3s ease,
-                left 0.3s ease,
-                width 0.3s ease,
-                height 0.3s ease;
+                top 0.3s ease;
 
     &.is-active {
-        transform: translateY(-50%);
         opacity: 1;
         visibility: visible;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     &__img-wrap {
@@ -39,6 +35,10 @@ $img-s: 150px;
 
         .is-active & {
             transform: translateX(0);
+        }
+
+        &__img {
+            border-top-left-radius: 2px;
         }
 
         &:hover {
@@ -88,6 +88,7 @@ $img-s: 150px;
         padding: 10px 0;
         background-color: #444;
         border-right: 0 solid $color;
+        border-bottom-left-radius: 2px;
         transform: translateX(100%);
         transition: transform 0.4s ease;
         transition: border-width 0.2s ease-out, transform 0.4s ease;
@@ -213,7 +214,8 @@ $img-s: 150px;
         }
 }
 
-.is-docked {
+.is-active.is-docked {
+    // transform: none;
 
     .slider-detail__nav {
         transition: transform 0.3s ease;
@@ -229,7 +231,6 @@ $img-s: 150px;
 .is-docked-partial {
     left: $spacing;
     top: $spacing;
-    transform: none;
     bottom: $spacing;
     height: calc(100% - #{ $spacing } * 2);
 }

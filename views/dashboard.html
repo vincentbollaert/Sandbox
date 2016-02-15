@@ -4,6 +4,27 @@
     <pg-sidebar>
     </pg-sidebar>
 
+    <div class="toasts">
+        <div class="toasts__toast is-error"
+         ng-class="{ 'toasted' : touchedToast }"
+         ng-click="touchedToast = true">
+            <div class="toasts__toast__icon-wrap">
+                <i class="icon icon-option-cancel"></i>
+            </div>
+            <div class="toasts__toast__copy">
+                This is an error message from api. The data coould not be loaded
+            </div>
+        </div>
+        <div class="toasts__toast is-info">
+            <div class="toasts__toast__icon-wrap">
+                <i class="icon icon-option-cancel"></i>
+            </div>
+            <div class="toasts__toast__copy">
+                This is an info message. Use still to be found
+            </div>
+        </div>
+    </div>
+
     <pg-slider-detail
      selected-person="selectedPerson"
      people-doc-length="peopleDocLength">
