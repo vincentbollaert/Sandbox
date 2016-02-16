@@ -1,0 +1,13 @@
+<div class="toasts">
+    <div class="toasts__toast is-{{ toast.type }}"
+     ng-repeat="toast in toasts"
+     ng-class="{ 'toasted' : touchedToast }"
+     ng-click="touchedToast = true">
+        <div class="toasts__toast__icon-wrap">
+            <i class="icon icon-option-cancel"></i>
+        </div>
+        <div class="toasts__toast__copy">
+            {{ toast.message }}
+        </div>
+    </div>
+</div>
