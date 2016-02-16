@@ -5,7 +5,7 @@
         .module('webapp.directives')
         .directive('pgGreet', directive);
 
-        function directive() {
+        function directive($filter) {
             return {
                 restrict: 'E',
                 scope: {
@@ -18,6 +18,8 @@
 
             function link(scope) {
                 angular.extend(scope, {
+                    dateDay: $filter('date')(new Date(), 'EEEE'),
+                    date: $filter('date')(new Date(), 'MMMM d - H:mm')
                 });
             }
         }
