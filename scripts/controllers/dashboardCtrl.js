@@ -1,58 +1,70 @@
 ﻿(function(angular) {
     'use strict';
 
-    angular.module('webapp.controllers')
-        .controller('dashboardCtrl', ['$scope', 'dataService',
-            function($scope, dataService) {
+    angular
+        .module('webapp.controllers')
+        .controller('dashboardCtrl', controller);
 
-                let perSlide = 5;
+        function controller($scope, dataService) {
+            angular.extend($scope, {
+                peopleDoc: [],
+                peopleDocLength: 0,
+                slideAmt: 0,
+                people: [],
+                averageBalance: 0,
+                selectedPerson: undefined,
+                color: [],
+                selectedColor: {},
+                test: ''
+            });
 
-                dataService().get().then(function(receivedData) {
+            let perSlide = 5;
 
-                    $scope.peopleDoc = receivedData;
-                    $scope.peopleDocLength = $scope.peopleDoc.length;
-                    $scope.slidesAmt = Math.ceil($scope.peopleDocLength / perSlide);
+            dataService().get().then(function(receivedData) {
 
-                    console.log($scope.peopleDocLength, $scope.peopleDoc);
+                $scope.peopleDoc = receivedData;
+                $scope.peopleDocLength = $scope.peopleDoc.length;
+                $scope.slidesAmt = Math.ceil($scope.peopleDocLength / perSlide);
 
-                    $scope.people = $scope.peopleDoc.map(function(x) {
-                        return x.name;
-                    });
+                console.log($scope.peopleDocLength, $scope.peopleDoc);
 
-                    $scope.averageBalance = $scope.peopleDoc.map(function(x) {
-                        return x.balance;
-                    });
-                }, function() {
-                      alert('fail');
+                $scope.people = $scope.peopleDoc.map(function(x) {
+                    return x.name;
                 });
 
-                $scope.selectPerson = (person) => {
-                    $scope.selectedPerson = person;
-                };
+                $scope.averageBalance = $scope.peopleDoc.map(function(x) {
+                    return x.balance;
+                });
+            }, function() {
+                  alert('fail');
+            });
 
-                $scope.colors = [
-                    { name: '#11C596' },
-                    { name: '#39AAD9' },
-                    { name: '#49AA49' },
-                    { name: '#1CC8D3' },
-                    { name: '#D3C81B' },
-                    { name: '#e6e6e6' },
-                    { name: '#e6e6e6' },
-                    { name: '#e6e6e6' },
-                    { name: '#e6e6e6' },
-                    { name: '#e6e6e6' },
-                    { name: '#e6e6e6' },
-                    { name: '#e6e6e6' },
-                    { name: '#e6e6e6' },
-                    { name: '#e6e6e6' },
-                    { name: '#e6e6e6' }
-                ];
+            $scope.selectPerson = (person) => {
+                $scope.selectedPerson = person;
+            };
 
-                $scope.selectColor = (color) => {
-                    $scope.selectedColor = color;
-                };
+            $scope.colors = [
+                { name: '#11C596' },
+                { name: '#39AAD9' },
+                { name: '#49AA49' },
+                { name: '#1CC8D3' },
+                { name: '#D3C81B' },
+                { name: '#e6e6e6' },
+                { name: '#e6e6e6' },
+                { name: '#e6e6e6' },
+                { name: '#e6e6e6' },
+                { name: '#e6e6e6' },
+                { name: '#e6e6e6' },
+                { name: '#e6e6e6' },
+                { name: '#e6e6e6' },
+                { name: '#e6e6e6' },
+                { name: '#e6e6e6' }
+            ];
 
-                $scope.test = 'This is a test. If you are seeing this, it means that you have set angular up correctly :)';
-            }
-        ]);
+            $scope.selectColor = (color) => {
+                $scope.selectedColor = color;
+            };
+
+            $scope.test = 'This is a test. If you are seeing this, it means that you have set angular up correctly :)';
+        }
 })(window.angular);
