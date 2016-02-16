@@ -1,31 +1,31 @@
 (function(angular) {
     'use strict';
 
-    angular.module('webapp.directives')
-        .directive('pgColorPicker', [
-            () => {
-                return {
-                    restrict: 'E',
-                    scope: {
-                        colors: '=',
-                        selectColor: '='
-                    },
-                    replace: true,
-                    templateUrl: 'views/components/pg-color-picker.html',
+    angular
+        .module('webapp.directives')
+        .directive('pgColorPicker', directive);
 
-                    link: (scope) => {
+        function directive() {
+            return {
+                restrict: 'E',
+                scope: {
+                    colors: '=',
+                    selectColor: '='
+                },
+                replace: true,
+                templateUrl: 'views/components/pg-color-picker.html',
+                link: link
+            };
 
-                        scope.showColorPicker = false;
+            function link(scope) {
+                angular.extend(scope, {
+                    showColorPicker: false,
+                    toggleColorPicker: toggleColorPicker
+                });
 
-                        scope.toggleColorPicker = () => {
-                            scope.showColorPicker = !scope.hidePicker;
-                        };
-
-                        // scope.selectColor = (color) => {
-                        //     scope.selectTest(color);
-                        // };
-                    }
-                };
+                function toggleColorPicker() {
+                    scope.showColorPicker = !scope.hidePicker;
+                }
             }
-        ]);
+        }
 })(window.angular);
