@@ -10,7 +10,7 @@ $img-s: 150px;
     top: 50%;
     left: 300px;
     transform: translateY(-42%);
-    width: 450px;
+    width: 470px;
     height: 460px;
     transition: opacity 0.2s ease,
                 visibility 0.3s ease,
@@ -91,7 +91,7 @@ $img-s: 150px;
         border-bottom-left-radius: 2px;
         transform: translateX(100%);
         transition: transform 0.4s ease;
-        transition: border-width 0.2s ease-out, transform 0.4s ease;
+        transition: border-width 0.1s ease-out, transform 0.4s ease;
 
         &:hover {
             transition-delay: 0s;

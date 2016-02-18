@@ -1,0 +1,3 @@
+*.css
+*.map
+scripts/dist/scripts.min.js
