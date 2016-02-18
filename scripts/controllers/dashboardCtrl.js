@@ -5,11 +5,12 @@
         .module('webapp.controllers')
         .controller('dashboardCtrl', controller);
 
-        function controller($scope, dataService) {
+        function controller($scope, dataService, bgService) {
             angular.extend($scope, {
                 peopleDoc: [],
                 peopleDocLength: 0,
                 slideAmt: 0,
+                backgrounds: JSON.parse(localStorage.getItem('backgrounds')),
                 people: [],
                 averageBalance: 0,
                 selectedPerson: undefined,
@@ -38,6 +39,22 @@
             }, function() {
                   alert('fail');
             });
+
+
+
+            if (!localStorage.getItem('backgrounds')) {
+                bgService().get().then(function(data) {
+                    console.log('fetching from api');
+                    localStorage.setItem('backgrounds', JSON.stringify(data));
+                    $scope.backgrounds = localStorage.getItem('backgrounds');
+                    // console.log($scope.backgrounds);
+                });
+            }
+
+            $scope.activeBackground = $scope.backgrounds[15];
+
+
+
 
             $scope.selectPerson = (person) => {
                 $scope.selectedPerson = person;

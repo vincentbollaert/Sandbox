@@ -14,4 +14,14 @@
          ng-style="{ 'backgroundColor': color.name }">
         </li>
     </ul>
+
+    <ul class="pg-color-picker__list">
+        <li ng-repeat="background in backgrounds track by $index"
+         class="pg-color-picker__list__item"
+         ng-click="selectColor(background)">
+         <!-- <img ng-src="{{ background.url }}"
+         alt="" />
+        </li> -->
+    </ul>
+
 </div>
