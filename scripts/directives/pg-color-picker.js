@@ -10,6 +10,7 @@
                 restrict: 'E',
                 scope: {
                     colors: '=',
+                    backgrounds: '=',
                     selectColor: '='
                 },
                 replace: true,

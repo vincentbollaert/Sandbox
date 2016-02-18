@@ -5,11 +5,12 @@
         .module('webapp.controllers')
         .controller('dashboardCtrl', controller);
 
-        function controller($scope, dataService) {
+        function controller($scope, dataService, bgService) {
             angular.extend($scope, {
                 peopleDoc: [],
                 peopleDocLength: 0,
                 slideAmt: 0,
+                backgrounds: [],
                 people: [],
                 averageBalance: 0,
                 selectedPerson: undefined,
@@ -37,6 +38,11 @@
                 });
             }, function() {
                   alert('fail');
+            });
+
+            bgService().get().then(function(data) {
+                $scope.backgrounds = data;
+            console.log($scope.backgrounds, 'sdsds');
             });
 
             $scope.selectPerson = (person) => {
