@@ -16,13 +16,12 @@
     </ul>
 
     <ul class="pg-color-picker__list">
-        <li ng-repeat="color in backgrounds"
+        <li ng-repeat="background in backgrounds track by $index"
          class="pg-color-picker__list__item"
-         ng-click="selectColor(color)"
-         ng-style="{ 'background': url('color.url') }">
-         <img ng-src="{{ color.url }}"
+         ng-click="selectColor(background)">
+         <!-- <img ng-src="{{ background.url }}"
          alt="" />
-        </li>
+        </li> -->
     </ul>
 
 </div>

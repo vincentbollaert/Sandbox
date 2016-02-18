@@ -1,5 +1,13 @@
-<div class="pg-content"
- ng-style="{ 'background': selectedColor.name }">
+<div class="pg-content">
+
+    <div class="">
+        <ul class="pg-main-slider">
+            <li class="pg-main-slider__item">
+                <img class="pg-main-slider__item__img"
+                 ng-src="{{ activeBackground.url }}">
+            </li>
+        </ul>
+    </div>
 
     <pg-sidebar>
     </pg-sidebar>

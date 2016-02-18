@@ -10,7 +10,7 @@
                 peopleDoc: [],
                 peopleDocLength: 0,
                 slideAmt: 0,
-                backgrounds: [],
+                backgrounds: JSON.parse(localStorage.getItem('backgrounds')),
                 people: [],
                 averageBalance: 0,
                 selectedPerson: undefined,
@@ -40,10 +40,21 @@
                   alert('fail');
             });
 
-            bgService().get().then(function(data) {
-                $scope.backgrounds = data;
-            console.log($scope.backgrounds, 'sdsds');
-            });
+
+
+            if (!localStorage.getItem('backgrounds')) {
+                bgService().get().then(function(data) {
+                    console.log('fetching from api');
+                    localStorage.setItem('backgrounds', JSON.stringify(data));
+                    $scope.backgrounds = localStorage.getItem('backgrounds');
+                    // console.log($scope.backgrounds);
+                });
+            }
+
+            $scope.activeBackground = $scope.backgrounds[15];
+
+
+
 
             $scope.selectPerson = (person) => {
                 $scope.selectedPerson = person;
