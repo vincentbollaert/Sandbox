@@ -9,8 +9,7 @@
             return {
                 restrict: 'E',
                 scope: {
-                    selectedPerson: '=',
-                    peopleDocLength: '='
+                    selectedPerson: '='
                 },
                 replace: true,
                 templateUrl: 'views/components/pg-slider-detail.html',

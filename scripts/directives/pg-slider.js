@@ -9,7 +9,7 @@
             return {
                 restrict: 'E',
                 scope: {
-                    peopleDoc: '=',
+                    population: '=',
                     selectPerson: '=',
                     selectedPerson: '='
                 },

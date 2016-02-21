@@ -10,7 +10,7 @@
                 return {
                     get: () => {
                         var q = $q.defer();
-                            $http.get('https://api.myjson.com/bins/2csrb')
+                            $http.get('https://api.myjson.com/bins/24q0n')
                                 .success((data) => {
                                     q.resolve(data);
 

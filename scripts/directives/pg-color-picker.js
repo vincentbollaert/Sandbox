@@ -11,7 +11,8 @@
                 scope: {
                     colors: '=',
                     backgrounds: '=',
-                    selectColor: '='
+                    selectColor: '=',
+                    selectColorDone: '='
                 },
                 replace: true,
                 templateUrl: 'views/components/pg-color-picker.html',
@@ -20,13 +21,25 @@
 
             function link(scope) {
                 angular.extend(scope, {
-                    showColorPicker: false,
-                    toggleColorPicker: toggleColorPicker
+                    showColorPicker: false
                 });
 
-                function toggleColorPicker() {
-                    scope.showColorPicker = !scope.hidePicker;
-                }
+                // let downDate;
+                // function selectColor(color, $event) {
+                //     // $event.target.style.boxShadow = 'inset 0 0 0 10px' + ' #444';
+                //     downDate = new Date();
+                // }
+
+                // function selectColorDone(color, $event) {
+                //     // $event.target.style.boxShadow = 'inset 0 0 0 2px #444';
+                //     // if ($event.timeStamp > 10000) {
+                //         if (new Date() - downDate > 1000) {
+                //             $event.target.classList.add('is-active');
+                //         } else {
+                //             $event.target.classList.remove('is-active');
+                //         }
+                //     // }
+                // }
             }
         }
 })(window.angular);

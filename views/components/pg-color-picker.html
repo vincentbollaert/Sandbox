@@ -1,27 +1,16 @@
-<div class="pg-color-picker"
- ng-class="{ 'is-active': showColorPicker }"
- ng-mouseenter="showColorPicker = !showColorPicker"
- ng-mouseleave="showColorPicker = !showColorPicker">
+<div class="pg-color-picker">
 
     <div class="pg-color-picker__toggle">
         <i class="icon isAbs icon-color-adjust"></i>
     </div>
 
     <ul class="pg-color-picker__list">
-        <li ng-repeat="color in colors"
+        <li ng-repeat="color in colors track by $index"
          class="pg-color-picker__list__item"
-         ng-click="selectColor(color)"
-         ng-style="{ 'backgroundColor': color.name }">
+         ng-mousedown="selectColor(color, $event, $index)"
+         ng-mouseup="selectColorDone(color, $event, $index)"
+         ng-style="{ 'backgroundColor': color.code }">
         </li>
-    </ul>
-
-    <ul class="pg-color-picker__list">
-        <li ng-repeat="background in backgrounds track by $index"
-         class="pg-color-picker__list__item"
-         ng-click="selectColor(background)">
-         <!-- <img ng-src="{{ background.url }}"
-         alt="" />
-        </li> -->
     </ul>
 
 </div>
