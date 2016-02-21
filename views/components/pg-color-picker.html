@@ -7,7 +7,8 @@
     <ul class="pg-color-picker__list">
         <li ng-repeat="color in colors track by $index"
          class="pg-color-picker__list__item"
-         ng-click="selectColor(color)"
+         ng-mousedown="selectColor(color, $event, $index)"
+         ng-mouseup="selectColorDone(color, $event, $index)"
          ng-style="{ 'backgroundColor': color.code }">
         </li>
     </ul>

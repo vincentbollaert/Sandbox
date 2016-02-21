@@ -1,30 +1,32 @@
 $item-s: 20px;
 
 .pg-color-picker {
-    opacity: .3;
+    // opacity: .3;
     z-index: 1;
     position: fixed;
     top: 50%;
     right: 0;
     padding: 20px;
     background-color: #fff;
-    transform: translate(100%, -50%);
+    // transform: translate(100%, -50%);
     transition: transform 0.3s ease, opacity 0.3s ease;
 
     &:hover {
         opacity: 1;
-        transform: translate(0, -50%);
+        // transform: translate(0, -50%);
     }
 
     &__list {
 
         &__item {
+            position: relative;
             margin-top: 1px;
             margin-right: 1px;
             float: left;
             width: $item-s;
             height: $item-s;
             background-color: #ddd;
+            box-shadow: inset 0 0 0 0 #444;
             cursor: pointer;
 
             &:nth-child(-n + 4) {
@@ -37,6 +39,23 @@ $item-s: 20px;
 
             &:nth-child(4n + 1) {
                 clear: left;
+            }
+
+            &.is-active {
+                z-index: 2;
+                box-shadow: 0 0 0 2px #444;
+
+                &:active {
+                    transition: box-shadow 1s ease;
+                    box-shadow: 0 0 0 2px #444,
+                                inset 0 0 0 10px #444;
+                }
+            }
+
+            &:active {
+                z-index: 1;
+                transition: box-shadow 1s ease;
+                box-shadow: inset 0 0 0 10px #444;
             }
         }
     }

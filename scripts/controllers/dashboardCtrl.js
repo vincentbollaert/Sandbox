@@ -5,7 +5,7 @@
         .module('webapp.controllers')
         .controller('dashboardCtrl', controller);
 
-        function controller($scope, dataService, bgService) {
+        function controller($scope, $timeout, dataService, bgService) {
             angular.extend($scope, {
                 population: JSON.parse(localStorage.getItem('population')),
                 colors: JSON.parse(localStorage.getItem('colors')) || [],
@@ -24,11 +24,11 @@
                 }, function() {
                       alert('fail');
                 });
-            } else {
             }
 
             (function init() {
                 updateBackground();
+                loopThroughColors();
             })();
 
 
@@ -43,10 +43,37 @@
                 });
             }
 
+            let downDate;
             $scope.selectColor = (color) => {
-                localStorage.setItem('activeBackground', JSON.stringify(color));
-                updateBackground();
+                downDate = new Date();
+                // localStorage.setItem('activeBackground', JSON.stringify(color));
+                // updateBackground();
+                $scope.currentBackground = color;
             };
+
+            $scope.selectColorDone = function(color, $event, $index) {
+                $event.target.classList.add('is-active');
+                loopThroughColors($index);
+                if (new Date() - downDate > 1000) {
+                    localStorage.setItem('activeBackground', JSON.stringify(color));
+                    updateBackground();
+                } else {
+                    // $event.target.classList.remove('is-active');
+                }
+            };
+
+            function loopThroughColors(iTest) {
+                let i = iTest || 0;
+                for (i; i < $scope.colors.length; i++) {
+                    setCurrentBackground(i);
+                }
+            }
+
+            function setCurrentBackground(i) {
+                $timeout(function() {
+                    $scope.currentBackground = $scope.colors[i];
+                }, i * 1000);
+            }
 
             function updateBackground() {
                 $scope.activeBackground = JSON.parse(localStorage.getItem('activeBackground')) || $scope.colors[0];
