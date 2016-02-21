@@ -1,13 +1,14 @@
-<div class="pg-content">
-
-    <div class="">
+<div class="pg-content"
+ ng-style="{ 'background': activeBackground.code }">
+    <!-- <div class="">
         <ul class="pg-main-slider">
-            <li class="pg-main-slider__item">
+            <li class="pg-main-slider__item"
+             ng-repeat="background in backgrounds">
                 <img class="pg-main-slider__item__img"
-                 ng-src="{{ activeBackground.url }}">
+                 ng-src="assets/images/{{$index}}.jpg">
             </li>
         </ul>
-    </div>
+    </div> -->
 
     <pg-sidebar>
     </pg-sidebar>
@@ -16,8 +17,7 @@
     </pg-toasts>
 
     <pg-slider-detail
-     selected-person="selectedPerson"
-     people-doc-length="peopleDocLength">
+     selected-person="selectedPerson">
     </pg-slider-detail>
 
     <pg-color-picker
@@ -31,7 +31,7 @@
     </pg-greet>
 
     <pg-slider
-     people-doc="peopleDoc"
+     population="population"
      select-person="selectPerson"
      selected-person="selectedPerson">
     </pg-slider>
