@@ -1,15 +1,21 @@
 <div class="pg-color-picker">
 
-    <div class="pg-color-picker__toggle">
+    <div class="pg-color-picker__toggle is-noob"
+     data-title="Hold down to set default and stop slider">
         <i class="icon icon-default isAbs icon-color-adjust"></i>
-        <i class="icon icon-active isAbs icon-option-full"></i>
+        <i class="icon
+                  icon-active
+                  isAbs
+                  icon-info">
+         </i>
     </div>
 
     <ul class="pg-color-picker__list">
         <li ng-repeat="color in colors track by $index"
+         ng-class="{ 'is-active': color.code === currentBackground.code }"
          class="pg-color-picker__list__item"
          ng-mousedown="selectColor(color, $event, $index)"
-         ng-mouseup="selectColorDone(color, $event, $index)"
+         ng-mouseup="selectColorMouseUp(color, $event, $index)"
          ng-style="{ 'backgroundColor': color.code }">
         </li>
     </ul>

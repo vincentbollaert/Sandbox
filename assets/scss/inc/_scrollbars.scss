@@ -15,6 +15,7 @@ $scrollbar-w: 10px;
     &::-webkit-scrollbar-track {
         display: inline-block;
         width: $scrollbar-w;
+        border-radius: $scrollbar-w;
         background-color: #F0F0F0;
         box-shadow: inset 0px 0px 2px rgba(68, 68, 68, 0.13);
     }
@@ -24,5 +25,11 @@ $scrollbar-w: 10px;
         background-color: #fff;
         border: 1px solid #E8E8E8;
         border-radius: $scrollbar-w;
+    }
+
+    &::-webkit-scrollbar-button {
+        position: absolute;
+        height: $scrollbar-w / 2;
+        background-color: #fff;
     }
 }

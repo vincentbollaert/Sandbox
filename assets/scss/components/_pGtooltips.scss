@@ -1,9 +1,14 @@
 // --------------------------------------------------------------------------
 // Tooltips
 // --------------------------------------------------------------------------
+@mixin displayTooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -5px);
+}
 
 [data-title] {
-    &:before {
+    &:after {
         content: attr(data-title);
         opacity: 0;
         visibility: hidden;
@@ -21,10 +26,14 @@
     }
 
     &:hover {
-        &:before {
-            opacity: 1;
-            visibility: visible;
-            transform: translate(-50%, -5px);
+        &:after {
+            @include displayTooltip;
+        }
+    }
+
+    &.is-noob {
+        .icon:last-child {
+            color: $b-color-primary;
         }
     }
 }

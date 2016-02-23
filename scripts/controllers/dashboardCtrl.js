@@ -5,21 +5,26 @@
         .module('webapp.controllers')
         .controller('dashboardCtrl', controller);
 
-        function controller($scope, $timeout, dataService, bgService) {
+        function controller($scope, $interval, dataService, bgService) {
             angular.extend($scope, {
                 population: JSON.parse(localStorage.getItem('population')),
                 colors: JSON.parse(localStorage.getItem('colors')) || [],
-                slideAmt: 0,
-                people: [],
-                averageBalance: 0,
-                selectedPerson: undefined,
-                selectedColor: {},
-                test: ''
+                currentBackground: {},
+                selectColor: selectColor,
+                selectColorMouseUp: selectColorMouseUp,
+                selectPerson: selectPerson,
+                selectedPerson: undefined
             });
 
-            let timeout;
-            let updateCurrentColor;
+            let colorsInterval, selectColorMouseDownDate;
 
+            (function init() {
+                loadSavedBackground();
+                setCurrentBackground(0, true);
+            })();
+
+
+            // population
             if (!localStorage.getItem('population')) {
                 dataService().get().then((data) => {
                     localStorage.setItem('population', JSON.stringify(data));
@@ -29,16 +34,12 @@
                 });
             }
 
-            (function init() {
-                updateBackground();
-                loopThroughColors();
-            })();
-
-
-            $scope.selectPerson = (person) => {
+            function selectPerson(person) {
                 $scope.selectedPerson = person;
-            };
+            }
 
+
+            // colors
             if (!localStorage.getItem('colors')) {
                 bgService().get().then((data) => {
                     localStorage.setItem('colors', JSON.stringify(data));
@@ -46,75 +47,42 @@
                 });
             }
 
-            let downDate;
-            $scope.selectColor = (color) => {
-                downDate = new Date();
-                // localStorage.setItem('activeBackground', JSON.stringify(color));
-                // updateBackground();
+            function selectColor() {
+                selectColorMouseDownDate = new Date();
+            }
+
+            function selectColorMouseUp(color, $event, $index) {
+
                 $scope.currentBackground = color;
-            };
-
-            $scope.timeoutTest = () => {
-                console.log('clear timeouts');
-                $timeout.cancel(timeout);
-            };
-
-            $scope.selectColorDone = function(color, $event, $index) {
-                $event.target.classList.add('is-active');
-                // debugger;
-                loopThroughColors($index, true);
-                if (new Date() - downDate > 1000) {
-                    localStorage.setItem('activeBackground', JSON.stringify(color));
-                    updateBackground();
+                if (new Date() - selectColorMouseDownDate > 1000) {
+                    localStorage.setItem('defaultBackground', JSON.stringify(color));
+                    setCurrentBackground(0, true);
                 } else {
-                    // $event.target.classList.remove('is-active');
-                }
-            };
-
-
-
-            // timeout = ()(i);
-
-            function loopThroughColors(indexClicked, updated) {
-                let i = indexClicked || 0;
-                for (i; i < $scope.colors.length; i++) {
-
-                    (function(ind) {
-
-                        // console.log('in IIFE');
-                        $timeout(function() {
-                            if (updated) {
-                                console.log('updated', ind, indexClicked);
-                                ind = indexClicked;
-                                updated = false;
-                                // return;
-                            }
-                            console.log(ind, 'about to set');
-                            $scope.currentBackground = $scope.colors[ind];
-                            // console.log(ind, 'background set');
-
-                            if (ind === $scope.colors.length - 1) {
-                                // console.log('reached end');
-                            }
-
-                        }, ind * 1000);
-                    })(i);
-
-                    // setCurrentBackground(i);
+                    setCurrentBackground($index);
                 }
             }
 
 
-            function setCurrentBackground(i) {
-                console.log('setting background');
+            function setCurrentBackground(colorIndex, loadFromStorage) {
+                $interval.cancel(colorsInterval);
 
+                if (loadFromStorage) {
+                    loadSavedBackground();
+                    return;
+                }
+
+                colorsInterval = $interval(() => {
+                    colorIndex += 1;
+                    if (colorIndex === $scope.colors.length) {
+                        colorIndex = 0;
+                    }
+                    $scope.currentBackground = $scope.colors[colorIndex];
+                }, 1000);
             }
 
-            function updateBackground() {
-                $scope.activeBackground = JSON.parse(localStorage.getItem('activeBackground')) || $scope.colors[0];
+            function loadSavedBackground() {
+                $scope.defaultBackground = JSON.parse(localStorage.getItem('defaultBackground'));
+                $scope.currentBackground = $scope.defaultBackground || $scope.colors[0];
             }
-
-
-            $scope.test = 'This is a test. If you are seeing this, it means that you have set angular up correctly :)';
         }
 })(window.angular);
