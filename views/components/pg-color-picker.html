@@ -7,9 +7,10 @@
 
     <ul class="pg-color-picker__list">
         <li ng-repeat="color in colors track by $index"
+         ng-class="{ 'is-active': color.code === currentBackground.code }"
          class="pg-color-picker__list__item"
          ng-mousedown="selectColor(color, $event, $index)"
-         ng-mouseup="selectColorDone(color, $event, $index)"
+         ng-mouseup="selectColorMouseUp(color, $event, $index)"
          ng-style="{ 'backgroundColor': color.code }">
         </li>
     </ul>

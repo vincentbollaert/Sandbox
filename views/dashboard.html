@@ -1,14 +1,5 @@
 <div class="pg-content"
- ng-style="{ 'background': currentBackground.code || activeBackground.code }">
-    <!-- <div class="">
-        <ul class="pg-main-slider">
-            <li class="pg-main-slider__item"
-             ng-repeat="background in backgrounds">
-                <img class="pg-main-slider__item__img"
-                 ng-src="assets/images/{{$index}}.jpg">
-            </li>
-        </ul>
-    </div> -->
+ ng-style="{ 'background': currentBackground.code }">
 
     <pg-sidebar>
     </pg-sidebar>
@@ -16,7 +7,6 @@
     <pg-toasts>
     </pg-toasts>
 
-    <button type="button" ng-click="timeoutTest()" name="button">timeout test</button>
     <pg-slider-detail
      selected-person="selectedPerson">
     </pg-slider-detail>
@@ -24,8 +14,9 @@
     <pg-color-picker
      colors="colors"
      backgrounds="backgrounds"
+     current-background="currentBackground"
      select-color="selectColor"
-     select-color-done="selectColorDone">
+     select-color-mouse-up="selectColorMouseUp">
     </pg-color-picker>
 
     <pg-greet

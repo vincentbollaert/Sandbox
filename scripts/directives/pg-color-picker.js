@@ -11,8 +11,9 @@
                 scope: {
                     colors: '=',
                     backgrounds: '=',
+                    currentBackground: '=',
                     selectColor: '=',
-                    selectColorDone: '='
+                    selectColorMouseUp: '='
                 },
                 replace: true,
                 templateUrl: 'views/components/pg-color-picker.html',
