@@ -23,8 +23,8 @@
         box-shadow: 0 0 0 1px #E8E8E8;
 
         &:focus {
-            box-shadow: 0 0 0 1px #12C3E4;
-            color: #12C3E4;
+            box-shadow: 0 0 0 1px $b-color-dark;
+            color: $b-color-dark;
         }
 
         &__icon {
@@ -45,7 +45,7 @@
                 line-height: $field-h;
 
                 &:hover {
-                    color: #12C3E4;
+                    color: $b-color-dark;
                 }
             }
         }
@@ -112,7 +112,7 @@ $size: 16px;
         }
 
         &:checked + label {
-            background-color: #00aadd;
+            background-color: $b-color-dark;
             box-shadow: none;
 
             &:after {
@@ -177,8 +177,8 @@ input[type=range] {
     }
 
     & + .field {
-        box-shadow: 0 0 0 1px #12C3E4;
-        color: #12C3E4;
+        box-shadow: 0 0 0 1px $b-color-dark;
+        color: $b-color-dark;
     }
  }
 
