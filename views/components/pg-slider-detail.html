@@ -27,21 +27,32 @@
     </nav>
 
     <div class="slider-detail__wrap">
-
-        <header class="slider-detail__header">
+        <header class="slider-detail__header cf">
             Name: {{ selectedPerson.name.first }} {{ selectedPerson.name.last }}
 
-            <i class="icon slider-detail__header__icon"
-             ng-repeat="dockState in options.dockStates"
-             ng-click="setOption(dockState, 'dockStates')"
-             ng-class="'icon-option-' + returnObjKey(dockState)">
-            </i>
-
-            <i class="icon
-                      slider-detail__header__icon
-                      icon-option-cancel"
-             ng-click="close()">
-            </i>
+            <ul class="slider-detail__header__switches">
+                <li class="slider-detail__header__switch">
+                    <i class="icon
+                              icon-cancel-1
+                              slider-detail__header__switch__icon"
+                     ng-click="setSwitch('docked')">
+                    </i>
+                </li>
+                <li class="slider-detail__header__switch">
+                    <i class="icon
+                              icon-resize-full-alt
+                              slider-detail__header__switch__icon"
+                     ng-click="setSwitch('fullScreen')">
+                    </i>
+                </li>
+                <li class="slider-detail__header__switch">
+                    <i class="icon
+                              icon-resize-full
+                              slider-detail__header__switch__icon"
+                     ng-click="setSwitch('closed')">
+                    </i>
+                </li>
+            </ul>
         </header>
 
         <ul class="slider-detail__categories  cf">
@@ -69,6 +80,9 @@
                                         <li class="slider-detail__categories__item"
                                          data-title="test title">
                                         </li>
+                                            <li class="slider-detail__categories__item"
+                                             data-title="test title">
+                                            </li>
         </ul>
 
         <ul class="slider-detail__stats cf">
@@ -183,7 +197,13 @@
         </div>
 
         <div class="field-container">
-            <div class="field field--dd-toggle">
+            <textarea class="field lw-full" name="name" rows="5" placeholder="placeholder input"></textarea
+        </div>
+
+        <div class="field-container">
+            <div class="field field--dd-toggle"
+             ng-click="showDropdown = !showDropdown"
+             ng-class="{ 'is-active': showDropdown }">
                 <i class="icon isAbs icon-down-open field__icon"></i>
                 Active text
             </div>

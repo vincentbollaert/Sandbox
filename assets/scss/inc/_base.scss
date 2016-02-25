@@ -155,6 +155,10 @@ select {
     }
 }
 
+textarea {
+    resize: none;
+}
+
 input {
     &::-ms-clear {
         display: none;

@@ -20,7 +20,8 @@
                 angular.extend(scope, {
                     options: {},
                     rangeModel: 50,
-                    setOption: setOption,
+                    setSwitch: setSwitch,
+                    activeSwitch: '',
                     isDocked: {},
                     dock: dock,
                     close: close,
@@ -29,18 +30,12 @@
 
                 scope.options = {
                     open: false,
-                    dockStates: [{
-                        partial: false
-                    },{
-                        full: false
-                    }]
+                    docked: false,
+                    fullScreen: false
                 };
 
-                function setOption (option, optionParent) {
-                    if (optionParent) {
-                        scope.options[optionParent][scope.returnObjKey(option)] = !scope.options[optionParent][scope.returnObjKey(option)];
-                    }
-                    console.log(scope.options[optionParent][scope.returnObjKey(option)]);
+                function setSwitch(option) {
+                    scope.activeSwitch = !scope.options[option];
                 }
 
                 function dock(option) {
