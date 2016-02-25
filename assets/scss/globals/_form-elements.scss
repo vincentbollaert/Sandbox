@@ -6,19 +6,20 @@
     margin-right: 2px;
     font-size: 10px;
     text-transform: uppercase;
+    user-select: none;
 }
 
 .field-container {
     position: relative;
     margin-top: 20px;
+    line-height: 1;
+    user-select: none;
 }
 
-    $field-h: 30px;
+    $field-h: 33px;
     .field {
         border: none;
-        padding: 0 14px;
-        height: $field-h;
-        line-height: $field-h;
+        padding: 10px 15px;
         width: 100%;
         box-shadow: 0 0 0 1px #E8E8E8;
 
@@ -29,23 +30,36 @@
 
         &__icon {
             position: absolute;
-            top: 0;
+            top: 50%;
             right: 15px;
+            font-size: 11px;
+            transform: translateY(-50%);
         }
 
         &__list {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            left: 0;
             padding: 10px 0;
-            box-shadow: 0px 1px 0px 0px #E8E8E8,
-                        -1px 1px 0px 0px #E8E8E8,
-                        1px 1px 0px 0px #E8E8E8;
+            background-color: #fff;
+            box-shadow: 0 0px 0 1px #E8E8E8;
+            border-bottom-right-radius: 2px;
+            border-bottom-left-radius: 2px;
+            transform: translateY(15px);
+            transition: transform 0.2s ease-out, opacity 0.3s ease, visibility 0.2s ease, border 0.1s ease-out;
 
             &__item {
                 width: 100%;
                 padding: 0 15px;
                 line-height: $field-h;
+                cursor: pointer;
 
                 &:hover {
                     color: $b-color-dark;
+                    box-shadow: -2px 0 0 -1px $b-color-dark;
                 }
             }
         }
@@ -54,13 +68,30 @@
     .field--range {
         float: right;
         margin-left: 20px;
-        padding: 0;
+        padding: 10px 0;
         width: $field-h;
         text-align: center;
     }
 
     .field--dd-toggle {
+        z-index: 1;
         position: relative;
+        background-color: #fff;
+
+        &.is-active {
+            box-shadow: 0 0 0 1px $b-color-dark;
+            color: $b-color-dark;
+
+            .field__icon {
+                transform: translateY(-50%) rotate(180deg);
+            }
+
+            & + .field__list {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
     }
 
     .range {
@@ -75,8 +106,7 @@ $size: 16px;
     position: relative;
     display: inline-block;
     vertical-align: middle;
-    margin-top: -1px;
-    margin-right: 10px;
+    margin: -3px 10px -3px 0;
     width: $size;
     height: $size;
 

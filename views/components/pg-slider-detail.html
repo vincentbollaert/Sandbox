@@ -35,21 +35,21 @@
                     <i class="icon
                               icon-cancel-1
                               slider-detail__header__switch__icon"
-                     ng-click="setOption(dockState, 'dockStates')">
+                     ng-click="setSwitch('docked')">
                     </i>
                 </li>
                 <li class="slider-detail__header__switch">
                     <i class="icon
                               icon-resize-full-alt
                               slider-detail__header__switch__icon"
-                     ng-click="setOption(dockState, 'dockStates')">
+                     ng-click="setSwitch('fullScreen')">
                     </i>
                 </li>
                 <li class="slider-detail__header__switch">
                     <i class="icon
                               icon-resize-full
                               slider-detail__header__switch__icon"
-                     ng-click="close()">
+                     ng-click="setSwitch('closed')">
                     </i>
                 </li>
             </ul>
@@ -197,7 +197,13 @@
         </div>
 
         <div class="field-container">
-            <div class="field field--dd-toggle">
+            <textarea class="field lw-full" name="name" rows="5" placeholder="placeholder input"></textarea
+        </div>
+
+        <div class="field-container">
+            <div class="field field--dd-toggle"
+             ng-click="showDropdown = !showDropdown"
+             ng-class="{ 'is-active': showDropdown }">
                 <i class="icon isAbs icon-down-open field__icon"></i>
                 Active text
             </div>
