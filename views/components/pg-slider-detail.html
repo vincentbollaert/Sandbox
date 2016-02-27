@@ -1,5 +1,6 @@
-<div class="slider-detail"
- ng-class="{ 'is-active': selectedPerson, 'is-docked is-docked-partial': options.dockStates.partial === true, 'is-docked is-docked-full': options.dockStates.full }">
+<div class="slider-detail {{ activeState }}"
+ ng-class="{ 'is-active': selectedPerson }">
+ <!-- 'is-active': selectedPerson  -->
 
     <div class="slider-detail__img-wrap">
         <div class="slider-detail__img-wrap__overlay">
@@ -30,26 +31,29 @@
         <header class="slider-detail__header cf">
             Name: {{ selectedPerson.name.first }} {{ selectedPerson.name.last }}
 
-            <ul class="slider-detail__header__switches">
-                <li class="slider-detail__header__switch">
+            <ul class="slider-detail__header__states">
+                <li class="slider-detail__header__state"
+                 ng-class="{ 'is-active': 'closed' === activeState  }"
+                 ng-click="setState('closed')">
                     <i class="icon
                               icon-cancel-1
-                              slider-detail__header__switch__icon"
-                     ng-click="setSwitch('docked')">
+                              slider-detail__header__state__icon">
                     </i>
                 </li>
-                <li class="slider-detail__header__switch">
-                    <i class="icon
-                              icon-resize-full-alt
-                              slider-detail__header__switch__icon"
-                     ng-click="setSwitch('fullScreen')">
-                    </i>
-                </li>
-                <li class="slider-detail__header__switch">
+                <li class="slider-detail__header__state"§
+                 ng-class="{ 'is-active': 'docked' === activeState  }"
+                 ng-click="setState('docked')">
                     <i class="icon
                               icon-resize-full
-                              slider-detail__header__switch__icon"
-                     ng-click="setSwitch('closed')">
+                              slider-detail__header__state__icon">
+                    </i>
+                </li>
+                <li class="slider-detail__header__state"
+                 ng-class="{ 'is-active': 'fullScreen' === activeState  }"
+                 ng-click="setState('fullScreen')">
+                    <i class="icon
+                              icon-resize-full-alt
+                              slider-detail__header__state__icon">
                     </i>
                 </li>
             </ul>

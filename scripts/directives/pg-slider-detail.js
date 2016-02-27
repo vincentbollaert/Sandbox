@@ -18,38 +18,34 @@
 
             function link(scope) {
                 angular.extend(scope, {
-                    options: {},
+                    sliderStates: {
+                        docked: false,
+                        fullScreen: false,
+                        closed: false
+                    },
                     rangeModel: 50,
-                    setSwitch: setSwitch,
-                    activeSwitch: '',
-                    isDocked: {},
-                    dock: dock,
-                    close: close,
-                    returnObjKey: returnObjKey
+                    setState: setState,
+                    activeState: undefined,
+                    isDocked: {}
                 });
 
-                scope.options = {
-                    open: false,
-                    docked: false,
-                    fullScreen: false
-                };
+                function setState(selectedState) {
+                    let keys = Object.keys(scope.sliderStates),
+                        i = 0;
 
-                function setSwitch(option) {
-                    scope.activeSwitch = !scope.options[option];
-                }
+                    for (i; i < keys.length; i++) {
+                        if (keys[i] !== selectedState) {
+                            scope.sliderStates[keys[i]] = false;
+                        }
+                    }
 
-                function dock(option) {
-                    scope.isDocked[option] = !scope.isDocked[option];
-                    console.log(scope.isDocked);
-                }
+                    scope.sliderStates[selectedState] = !scope.sliderStates[selectedState];
+                    scope.activeState = (scope.sliderStates[selectedState] ? selectedState : undefined);
 
-                function close() {
-                    scope.isDocked = {};
-                    scope.selectedPerson = false;
-                }
-
-                function returnObjKey(obj) {
-                    return Object.keys(obj)[0];
+                    if (selectedState === 'closed') {
+                        scope.selectedPerson = undefined;
+                        scope.activeState = undefined;
+                    }
                 }
             }
         }

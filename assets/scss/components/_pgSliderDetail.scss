@@ -4,8 +4,8 @@
 
 $img-s: 150px;
 .slider-detail {
-    // opacity: 0;
-    // visibility: hidden;
+    opacity: 0;
+    visibility: hidden;
     position: absolute;
     top: 50%;
     left: 300px;
@@ -140,12 +140,18 @@ $img-s: 150px;
             line-height: 1;
             font-size: 18px;
 
-            &__switches {
+            &__states {
                 float: right;
             }
 
-                &__switch {
+                &__state {
                     float: left;
+
+                    &.is-active {
+                        .icon {
+                            color: $color;
+                        }
+                    }
 
                     &__icon {
                         margin-left: 10px;
@@ -230,8 +236,9 @@ $img-s: 150px;
         }
 }
 
-.is-active.is-docked {
-    // transform: none;
+.is-active.docked,
+.is-active.fullScreen {
+    transform: none;
 
     .slider-detail__nav {
         transition: transform 0.3s ease;
@@ -244,15 +251,17 @@ $img-s: 150px;
     }
 }
 
-.is-docked-partial {
-    left: $spacing;
-    top: $spacing;
-    bottom: $spacing;
-    height: calc(100% - #{ $spacing } * 2);
-}
+.slider-detail {
+    &.docked {
+        left: $spacing;
+        top: $spacing;
+        bottom: $spacing;
+        height: calc(100% - #{ $spacing } * 2);
+    }
 
-.is-docked-full {
-    @extend .is-docked-partial;
-    right: $spacing;
-    width: calc(100% - (#{ $spacing } * 2));
+    &.fullScreen {
+        @extend .docked;
+        right: $spacing;
+        width: calc(100% - (#{ $spacing } * 2));
+    }
 }

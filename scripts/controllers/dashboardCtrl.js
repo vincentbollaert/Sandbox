@@ -13,7 +13,7 @@
                 selectColor: selectColor,
                 selectColorMouseUp: selectColorMouseUp,
                 selectPerson: selectPerson,
-                selectedPerson: undefined
+                selectedPerson: undefined,
             });
 
             let colorsInterval, selectColorMouseDownDate;
