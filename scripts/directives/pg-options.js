@@ -3,26 +3,22 @@
 
     angular
         .module('webapp.directives')
-        .directive('pgColorPicker', ['optionsFactory', directive]);
+        .directive('pgOptions', directive);
 
         function directive(optionsFactory) {
             return {
                 restrict: 'E',
                 scope: {
-                    colors: '=',
-                    backgrounds: '=',
-                    currentBackground: '=',
-                    selectColor: '=',
-                    selectColorMouseUp: '='
+                    // colors: '=',
+                    // selectColor: '='
                 },
                 replace: true,
-                templateUrl: 'views/components/pg-color-picker.html',
+                templateUrl: 'views/components/pg-options.html',
                 link: link
             };
 
             function link(scope) {
                 angular.extend(scope, {
-                    showColorPicker: false,
                     options: optionsFactory
                 });
             }

@@ -5,7 +5,9 @@
         .module('webapp.directives')
         .directive('pgSliderDetail', directive);
 
-        function directive() {
+        function directive(optionsFactory) {
+            let inputData = undefined;
+
             return {
                 restrict: 'E',
                 scope: {
@@ -18,6 +20,7 @@
 
             function link(scope) {
                 angular.extend(scope, {
+                    options: optionsFactory,
                     sliderStates: {
                         docked: false,
                         fullScreen: false,
@@ -26,7 +29,25 @@
                     rangeModel: 50,
                     setState: setState,
                     activeState: undefined,
-                    isDocked: {}
+                    isDocked: {},
+                    chartColors: ['rgba(0, 170, 221, 0.59)', 'rgba(21, 178, 226, 0.81)'],
+                    chartData: [],
+                    inputData: {
+                        main: {
+                            raw: '',
+                            formatted: []
+                        },
+                        compare: {
+                            raw: '',
+                            formatted: []
+                        }
+                    },
+                    updateInputData: updateInputData
+                });
+
+                scope.$on('optionTransparentScrollbars', function() {
+                    console.log('received transparent scrollbars');
+                    // scope.optionsTransparentBackground =
                 });
 
                 function setState(selectedState) {
@@ -45,6 +66,34 @@
                     if (selectedState === 'closed') {
                         scope.selectedPerson = undefined;
                         scope.activeState = undefined;
+                    }
+                }
+
+                function updateInputData(mainOrCompare) {
+                    scope.inputData[mainOrCompare].formatted = [];
+
+                    let i = 0,
+                        foundComma = (scope.inputData[mainOrCompare].raw.indexOf(',') > -1 ? true : false),
+                        commaArray = [];
+
+                    if (!scope.inputData[mainOrCompare].raw.length) {
+                        return;
+                    }
+
+                    if (foundComma) {
+                        commaArray = scope.inputData[mainOrCompare].raw.split(',');
+                        for (i; i < commaArray.length; i++) {
+                            pushData(commaArray[i]);
+                        }
+                        return;
+                    }
+
+                    pushData();
+                    scope.inputData[mainOrCompare].raw = '';
+
+                    function pushData(data) {
+                        scope.inputData[mainOrCompare].formatted.push(data || scope.inputData[mainOrCompare].raw);
+                        scope.inputData[mainOrCompare].final = scope.inputData[mainOrCompare].formatted;
                     }
                 }
             }

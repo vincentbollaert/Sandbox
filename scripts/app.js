@@ -3,7 +3,6 @@
 
     var module = angular
         .module('webapp', [
-            'LocalStorageModule',
             'webapp.routes',
             'webapp.controllers',
             'webapp.directives',

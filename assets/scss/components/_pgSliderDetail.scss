@@ -6,6 +6,7 @@ $img-s: 150px;
 .slider-detail {
     opacity: 0;
     visibility: hidden;
+    z-index: 1;
     position: absolute;
     top: 50%;
     left: 300px;
@@ -22,6 +23,23 @@ $img-s: 150px;
         visibility: visible;
         top: 50%;
         transform: translateY(-50%);
+    }
+
+    &.is-test {
+        .slider-detail__wrap {
+            @extend %scrollbars-transparent;
+            padding: 0;
+            border-right: 5px solid rgba(255,255,255,.3);
+            background-color: transparent;
+            box-shadow: inset -15px 0px 0px rgba(255,255,255,.3);
+        }
+
+        .test {
+            background-color: #fff;
+            padding: $spacing;
+            padding-right: $spacing - 5px;
+            margin-right: 5px;
+        }
     }
 
     &__img-wrap {
