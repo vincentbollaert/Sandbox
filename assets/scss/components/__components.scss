@@ -9,14 +9,14 @@
 
     .pg-content {
         min-height: 100%;
-        // background: url('../images/nature-1.jpg');
+        background: url('../images/nature-1.jpg');
         background-size: cover;
     }
 
 .pg-main-slider {
 
     &__item {
-    
+
         &__img {
             width: 100%;
         }
@@ -34,3 +34,5 @@ $spacing: 20px;
 @import "pgTooltips";
 @import "pgGreeting";
 @import "pgToasts";
+@import "pgSettings";
+@import "pgQuote";

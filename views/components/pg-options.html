@@ -1,0 +1,23 @@
+<div class="pg-settings">
+
+    <ul class="pg-settings__options">
+        <li class="pg-settings__options__option cf"
+         ng-class="{ 'is-active' : option.value }"
+         ng-repeat="option in options.model">
+            <label class="label pg-settings__options__option__label"
+             for="option-{{ $index }}">
+                {{ option.label }}
+            </label>
+            <div class="input-container input-container--switch">
+                <input class="checkbox"
+                 ng-model="option.value"
+                 ng-change="options.update(option.id)"
+                 type="checkbox"
+                 id="option-{{ $index }}">
+                <label for="option-{{ $index }}"
+                 ng-click="">
+                </label>
+            </div>
+        </li>
+    </ul>
+</div>

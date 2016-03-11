@@ -1,0 +1,32 @@
+$color-line: #E8E8E8;
+$color-line-main: #0baadd;
+
+.slider-detail__chart {
+    box-shadow: 0 0 0 1px #eee;
+    // height: 400px;
+
+    path,
+    line {
+
+        &:not(.path-area) {
+            stroke-width: 1;
+            stroke: $color-line;
+            fill: none;
+        }
+    }
+
+    .axis.x {
+        path {
+            display: none;
+        }
+    }
+
+    .tick {
+        text {
+            font-family: sans-serif;
+            font-size: 10px;
+            fill: #999;
+        }
+    }
+
+}

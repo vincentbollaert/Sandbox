@@ -4,8 +4,9 @@
 
 $img-s: 150px;
 .slider-detail {
-    // opacity: 0;
-    // visibility: hidden;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1;
     position: absolute;
     top: 50%;
     left: 300px;
@@ -22,6 +23,23 @@ $img-s: 150px;
         visibility: visible;
         top: 50%;
         transform: translateY(-50%);
+    }
+
+    &.is-test {
+        .slider-detail__wrap {
+            @extend %scrollbars-transparent;
+            padding: 0;
+            border-right: 5px solid rgba(255,255,255,.3);
+            background-color: transparent;
+            box-shadow: inset -15px 0px 0px rgba(255,255,255,.3);
+        }
+
+        .test {
+            background-color: #fff;
+            padding: $spacing;
+            padding-right: $spacing - 5px;
+            margin-right: 5px;
+        }
     }
 
     &__img-wrap {
@@ -140,12 +158,18 @@ $img-s: 150px;
             line-height: 1;
             font-size: 18px;
 
-            &__switches {
+            &__states {
                 float: right;
             }
 
-                &__switch {
+                &__state {
                     float: left;
+
+                    &.is-active {
+                        .icon {
+                            color: $color;
+                        }
+                    }
 
                     &__icon {
                         margin-left: 10px;
@@ -230,8 +254,9 @@ $img-s: 150px;
         }
 }
 
-.is-active.is-docked {
-    // transform: none;
+.is-active.docked,
+.is-active.fullScreen {
+    transform: none;
 
     .slider-detail__nav {
         transition: transform 0.3s ease;
@@ -244,15 +269,17 @@ $img-s: 150px;
     }
 }
 
-.is-docked-partial {
-    left: $spacing;
-    top: $spacing;
-    bottom: $spacing;
-    height: calc(100% - #{ $spacing } * 2);
-}
+.slider-detail {
+    &.docked {
+        left: $spacing;
+        top: $spacing;
+        bottom: $spacing;
+        height: calc(100% - #{ $spacing } * 2);
+    }
 
-.is-docked-full {
-    @extend .is-docked-partial;
-    right: $spacing;
-    width: calc(100% - (#{ $spacing } * 2));
+    &.fullScreen {
+        @extend .docked;
+        right: $spacing;
+        width: calc(100% - (#{ $spacing } * 2));
+    }
 }

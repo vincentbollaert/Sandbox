@@ -37,10 +37,7 @@
             vendor: [
                 'bower_components/angular/angular.js',
                 'bower_components/angular-route/angular-route.js',
-                'bower_components/angular-animate/angular-animate.js',
-                'bower_components/angular-local-storage/dist/angular-local-storage.js',
-                'bower_components/angular-messages/angular-messages.js',
-                'bower_components/angular-loading-bar/src/loading-bar.js',
+                'bower_components/d3/d3.js',
             ],
             images: [
                 'assets/images/**/*',

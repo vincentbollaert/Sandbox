@@ -1,0 +1,34 @@
+.pg-settings {
+    position: fixed;
+    top: $spacing;
+    left: 50%;
+    padding: $spacing;
+    max-width: 250px;
+    transform: translateX(-50%);
+    background-color: #fff;
+
+    &__options {
+
+        &__option {
+            display: block;
+            margin-bottom: 15px;
+            text-align: right;
+            line-height: 1;
+
+            &.is-active {
+                color: $color;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &__label {
+                float: left;
+                margin-right: $spacing;
+                font-size: $b-font-size;
+                text-transform: none;
+            }
+        }
+    }
+}

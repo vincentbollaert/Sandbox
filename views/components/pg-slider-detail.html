@@ -1,5 +1,6 @@
-<div class="slider-detail"
- ng-class="{ 'is-active': selectedPerson, 'is-docked is-docked-partial': options.dockStates.partial === true, 'is-docked is-docked-full': options.dockStates.full }">
+<div class="slider-detail {{ activeState }}"
+ ng-class="{ 'is-active': selectedPerson, 'is-test': options.model.transparentScrollbars.value }">
+ <!-- 'is-active': selectedPerson  -->
 
     <div class="slider-detail__img-wrap">
         <div class="slider-detail__img-wrap__overlay">
@@ -27,38 +28,40 @@
     </nav>
 
     <div class="slider-detail__wrap">
-        <header class="slider-detail__header cf">
-            Name: {{ selectedPerson.name.first }} {{ selectedPerson.name.last }}
+        <div class="test">
 
-            <ul class="slider-detail__header__switches">
-                <li class="slider-detail__header__switch">
-                    <i class="icon
-                              icon-cancel-1
-                              slider-detail__header__switch__icon"
-                     ng-click="setSwitch('docked')">
-                    </i>
-                </li>
-                <li class="slider-detail__header__switch">
-                    <i class="icon
-                              icon-resize-full-alt
-                              slider-detail__header__switch__icon"
-                     ng-click="setSwitch('fullScreen')">
-                    </i>
-                </li>
-                <li class="slider-detail__header__switch">
-                    <i class="icon
-                              icon-resize-full
-                              slider-detail__header__switch__icon"
-                     ng-click="setSwitch('closed')">
-                    </i>
-                </li>
-            </ul>
-        </header>
+            <header class="slider-detail__header cf">
+                Name: {{ selectedPerson.name.first }} {{ selectedPerson.name.last }}
 
-        <ul class="slider-detail__categories  cf">
-            <li class="slider-detail__categories__item"
-             data-title="test title">
-            </li>
+                <ul class="slider-detail__header__states">
+                    <li class="slider-detail__header__state"
+                     ng-class="{ 'is-active': 'closed' === activeState  }"
+                     ng-click="setState('closed')">
+                        <i class="icon
+                                  icon-cancel-1
+                                  slider-detail__header__state__icon">
+                        </i>
+                    </li>
+                    <li class="slider-detail__header__state"§
+                     ng-class="{ 'is-active': 'docked' === activeState  }"
+                     ng-click="setState('docked')">
+                        <i class="icon
+                                  icon-resize-full
+                                  slider-detail__header__state__icon">
+                        </i>
+                    </li>
+                    <li class="slider-detail__header__state"
+                     ng-class="{ 'is-active': 'fullScreen' === activeState  }"
+                     ng-click="setState('fullScreen')">
+                        <i class="icon
+                                  icon-resize-full-alt
+                                  slider-detail__header__state__icon">
+                        </i>
+                    </li>
+                </ul>
+            </header>
+
+            <ul class="slider-detail__categories  cf">
                 <li class="slider-detail__categories__item"
                  data-title="test title">
                 </li>
@@ -83,144 +86,182 @@
                                             <li class="slider-detail__categories__item"
                                              data-title="test title">
                                             </li>
-        </ul>
+                                                <li class="slider-detail__categories__item"
+                                                 data-title="test title">
+                                                </li>
+            </ul>
 
-        <ul class="slider-detail__stats cf">
-            <li class="slider-detail__stats__item">
-                Name:
-                <div class="slider-detail__stats__item__value">
-                    {{ selectedPerson.name.first }} {{ selectedPerson.name.last }}
-                </div>
-            </li>
-            <li class="slider-detail__stats__item">
-                Gender:
-                <div class="slider-detail__stats__item__value">
-                    <label class="label"
-                     for="gender-m">
-                        male
-                    </label>
-                    <div class="input-container">
-                        <input class="radio"
-                         ng-click="setGender()"
-                         ng-model="company.selected"
-                         type="radio"
-                         id="gender-m"
-                         name="radio">
 
-                        <label for="gender-m"
-                         ng-click="setGender()">
-                        </label>
-                    </div>
-
-                    <label class="label"
-                     for="gender-f">
-                        female
-                    </label>
-                    <div class="input-container">
-                        <input class="radio"
-                         ng-click="setGender()"
-                         ng-model="company.selected"
-                         type="radio"
-                         id="gender-f"
-                         name="radio">
-
-                        <label for="gender-f"
-                         ng-click="setGender()">
-                        </label>
-                    </div>
-                </div>
-            </li>
-
-            <li class="slider-detail__stats__item">
-                Company:
-                <div class="slider-detail__stats__item__value">
-                    {{ selectedPerson.company }}
-                </div>
-            </li>
-            <li class="slider-detail__stats__item">
-                Balance:
-                <div class="slider-detail__stats__item__value">
-                    {{ selectedPerson.balance }}
-                </div>
-            </li>
-            <li class="slider-detail__stats__item">
-                Age:
-                <div class="slider-detail__stats__item__value">
-                    {{ selectedPerson.age }}
-                </div>
-            </li>
-            <li class="slider-detail__stats__item">
-                Last:
-                <div class="slider-detail__stats__item__value">
-                    <label class="label"
-                     for="checkbox">
-                        Checkbox
-                    </label>
-                    <div class="input-container">
-                        <input class="checkbox"
-                         ng-click=""
-                         ng-model="model"
-                         checked
-                         type="checkbox"
-                         id="checkbox">
-                        <label for="checkbox"
-                         ng-click="">
-                        </label>
-                    </div>
-                </div>
-            </li>
-        </ul>
-
-        <div class="field-container cf">
-            <input class="range"
-             type="range"
-             name="name"
-             ng-model="rangeModel"
-             ng-value="rangeModel">
-
-            <input class="field field--range"
-             type="text"
-             name="name"
-             ng-model="rangeModel"
-             ng-value="rangeModel">
-        </div>
-
-        <p class="slider-detail__section">
-            {{ selectedPerson.about }}
-        </p>
-
-        <div class="field-container">
-            <input class="field lw-full"
-            type="text"
-            name="name"
-            placeholder="placeholder input">
-        </div>
-
-        <div class="field-container">
-            <textarea class="field lw-full" name="name" rows="5" placeholder="placeholder input"></textarea
-        </div>
-
-        <div class="field-container">
-            <div class="field field--dd-toggle"
-             ng-click="showDropdown = !showDropdown"
-             ng-class="{ 'is-active': showDropdown }">
-                <i class="icon isAbs icon-down-open field__icon"></i>
-                Active text
+            <div class="field-container">
+                <input class="field lw-full"
+                type="text"
+                name="name"
+                placeholder="main data"
+                ng-model="inputData.main.raw">
             </div>
 
-            <ul class="field__list">
-                <li class="field__list__item">
-                    tets
+            <div class="btn"
+             ng-click="updateInputData('main')">
+                Submit main
+            </div>
+
+            <div class="field-container">
+                <input class="field lw-full"
+                type="text"
+                name="name"
+                placeholder="compare data"
+                ng-model="inputData.compare.raw">
+            </div>
+
+            <div class="btn"
+             ng-click="updateInputData('compare')">
+                Submit compare
+            </div>
+
+            <chart-line
+             chart-data="inputData.main.final || selectedPerson.balances.actualBalance"
+             chart-compare-data="inputData.compare.final || selectedPerson.balances.desiredBalance"
+             chart-colors="chartColors">
+            </chart-line>
+
+
+            <ul class="slider-detail__stats cf">
+                <li class="slider-detail__stats__item">
+                    Name:
+                    <div class="slider-detail__stats__item__value">
+                        {{ selectedPerson.name.first }} {{ selectedPerson.name.last }}
+                    </div>
                 </li>
-                <li class="field__list__item">
-                    tets
+                <li class="slider-detail__stats__item">
+                    Gender:
+                    <div class="slider-detail__stats__item__value">
+                        <label class="label"
+                         for="gender-m">
+                            male
+                        </label>
+                        <div class="input-container">
+                            <input class="radio"
+                             ng-click="setGender()"
+                             ng-model="company.selected"
+                             type="radio"
+                             id="gender-m"
+                             name="radio">
+
+                            <label for="gender-m"
+                             ng-click="setGender()">
+                            </label>
+                        </div>
+
+                        <label class="label"
+                         for="gender-f">
+                            female
+                        </label>
+                        <div class="input-container">
+                            <input class="radio"
+                             ng-click="setGender()"
+                             ng-model="company.selected"
+                             type="radio"
+                             id="gender-f"
+                             name="radio">
+
+                            <label for="gender-f"
+                             ng-click="setGender()">
+                            </label>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="slider-detail__stats__item">
+                    Company:
+                    <div class="slider-detail__stats__item__value">
+                        {{ selectedPerson.company }}
+                    </div>
+                </li>
+                <li class="slider-detail__stats__item">
+                    Balance:
+                    <div class="slider-detail__stats__item__value">
+                        {{ selectedPerson.balance }}
+                    </div>
+                </li>
+                <li class="slider-detail__stats__item">
+                    Age:
+                    <div class="slider-detail__stats__item__value">
+                        {{ selectedPerson.age }}
+                    </div>
+                </li>
+                <li class="slider-detail__stats__item">
+                    Last:
+                    <div class="slider-detail__stats__item__value">
+                        <label class="label"
+                         for="checkbox">
+                            Checkbox
+                        </label>
+                        <div class="input-container">
+                            <input class="checkbox"
+                             ng-click=""
+                             ng-model="model"
+                             checked
+                             type="checkbox"
+                             id="checkbox">
+                            <label for="checkbox"
+                             ng-click="">
+                            </label>
+                        </div>
+                    </div>
                 </li>
             </ul>
-        </div>
+
+            <div class="field-container cf">
+                <input class="range"
+                 type="range"
+                 name="name"
+                 ng-model="rangeModel"
+                 ng-value="rangeModel">
+
+                <input class="field field--range"
+                 type="text"
+                 name="name"
+                 ng-model="rangeModel"
+                 ng-value="rangeModel">
+            </div>
+
+            <p class="slider-detail__section">
+                {{ selectedPerson.about }}
+            </p>
+
+            <div class="field-container">
+                <input class="field lw-full"
+                type="text"
+                name="name"
+                placeholder="placeholder input">
+            </div>
+
+            <div class="field-container">
+                <textarea class="field lw-full" name="name" rows="5" placeholder="placeholder input"></textarea
+            </div>
+
+            <div class="field-container">
+                <div class="field field--dd-toggle"
+                 ng-click="showDropdown = !showDropdown"
+                 ng-class="{ 'is-active': showDropdown }">
+                    <i class="icon isAbs icon-down-open field__icon"></i>
+                    Active text
+                </div>
+
+                <ul class="field__list">
+                    <li class="field__list__item">
+                        tets
+                    </li>
+                    <li class="field__list__item">
+                        tets
+                    </li>
+                </ul>
+            </div>
 
 
-        <div class="slider-detail__placeholder">
+            <div class="slider-detail__placeholder">
 
+            </div>
         </div>
     </div>
 </div>
