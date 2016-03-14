@@ -23,6 +23,47 @@
     }
 }
 
+.drag-and-drop {
+    padding: 100px;
+    // position: relative;
+}
+
+.item {
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    left: 50%;
+    margin-top: -50px;
+    width: 100px;
+    height: 50px;
+    background-color: #eee;
+    transition: height 0.2s ease;
+
+    &.drag {
+        // background-color: #999;
+    }
+
+    &.within-range {
+        margin: 0;
+        // top: 0 !important;
+        bottom: 0;
+        // left: 0 !important;
+        height: 100%;
+        width: 300px;
+        // transform: none !important;
+        // transition: height 0.2s ease !important;
+    }
+}
+.bin {
+    height: 400px;
+    background-color: #444;
+
+    &.over {
+        // background-color: #777;
+    }
+}
+
+
 $slider-h: 90px;
 $color: $b-color-primary;
 $spacing: 20px;

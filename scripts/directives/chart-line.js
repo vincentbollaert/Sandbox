@@ -23,7 +23,7 @@
                 //     showColorPicker: false
                 // });
 
-                console.log(element);
+                // console.log(element);
 
                 let graphContainer = d3.select('.slider-detail__chart');
                 let margin = {top: 50, right: 50, bottom: 50, left: 50},
