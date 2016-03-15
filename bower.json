@@ -1,8 +1,7 @@
 {
-  "name": "angular-seed",
-  "description": "A starter project for AngularJS Material",
+  "name": "Sandbox",
+  "description": "A sandbox for AngularJS Development",
   "version": "0.0.0",
-  "homepage": "https://github.com/angular/material-start",
   "license": "MIT",
   "private": true,
   "dependencies": {
