@@ -45,8 +45,7 @@
                     loopThroughColors(0, true);
                 }
             });
-
-
+            
             // population
             function getPopulation() {
                 if (!localStorage.getItem('population')) {

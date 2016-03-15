@@ -23,7 +23,6 @@
                 //     showColorPicker: false
                 // });
 
-
                 let element = el[0];
                 let graphContainer = d3.select(element);
                 let margin = {top: 50, right: 50, bottom: 50, left: 50},
