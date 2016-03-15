@@ -1,19 +1,17 @@
 <div class="pg-content"
  ng-style="{ 'background': currentBackground.code }">
 
-    <pg-sidebar>
+    <!-- <pg-sidebar>
     </pg-sidebar>
 
     <pg-options>
     </pg-options>
 
     <pg-toasts>
-    </pg-toasts>
+    </pg-toasts> -->
 
     <pg-slider-detail
      selected-person="selectedPerson"
-     slider-detail-states="sliderDetailStates"
-     active-state="activeState"
      balances="balances">
     </pg-slider-detail>
 
@@ -38,4 +36,22 @@
      select-person="selectPerson"
      selected-person="selectedPerson">
     </pg-slider>
+
+    <div class="drag-and-drop">
+
+        <div class="test"
+         droppable>
+            DESK
+        </div>
+
+   <p class="item"
+    id="item"
+    draggable>
+   </p>
+        <div class="bin"
+         droppable>
+        </div>
+    </div>
+
+
 </div>
