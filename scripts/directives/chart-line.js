@@ -18,18 +18,18 @@
                 link: link
             };
 
-            function link(scope, element) {
+            function link(scope, el) {
                 // angular.extend(scope, {
                 //     showColorPicker: false
                 // });
 
-                console.log(element);
 
-                let graphContainer = d3.select('.slider-detail__chart');
+                let element = el[0];
+                let graphContainer = d3.select(element);
                 let margin = {top: 50, right: 50, bottom: 50, left: 50},
                     xAxisHeight = 20,
                     yAxisWidth = 20,
-                    width = graphContainer.node().clientWidth - (margin.right + margin.left),
+                    width = element.clientWidth - (margin.right + margin.left),
                     height = 300 - (margin.top + margin.bottom);
 
 
@@ -107,7 +107,7 @@
                     d3.select(window).on('resize', resize);
 
                     function resize() {
-                        width = graphContainer.node().clientWidth - (margin.right + margin.left);
+                        width = element.clientWidth - (margin.right + margin.left);
                         height = 400 - (margin.top + margin.bottom);
 
                         x.rangeBands([0, width], 0, -0.5);
