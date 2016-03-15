@@ -28,10 +28,9 @@
                 }
 
                 function drag(e) {
-                    e.stopPropagation();
-                    e.preventDefault();
-
+                    el.style.visibility = 'hidden';
                     timeStamps.push(e.timeStamp);
+
                     if (e.x > 0) {
                         x.push(e.x);
                     }
@@ -47,16 +46,13 @@
                     if (e.x > 300) {
                         el.classList.remove('within-range');
                     }
-                        el.style.visibility = 'hidden';
 
                     // console.log(el.style.left, 'x');
                     return false;
                 }
 
                 function dragEnd(e) {
-                el.style.visibility = 'visible';
-                    e.stopPropagation();
-                    e.preventDefault();
+                    el.style.visibility = 'visible';
 
                     let minTimeStamp = Math.min.apply(Math, timeStamps),
                         maxTimeStamp = Math.max.apply(Math, timeStamps),
@@ -82,10 +78,17 @@
                     }
                     //
                     if (e.x + leftOffset < 300) {
-                        leftOffset = e.x;
-                        el.style.transform = 'translate(' + -leftOffset + 'px, ' + -e.y + 'px)';
-                        el.style.transition = 'transform ' + timeInMotion + 's ease-out, bottom ' + timeInMotion + 's ease-out, height ' + timeInMotion + 's ease-out, width ' + timeInMotion + 's ease-out';
-                        el.classList.add('within-range');
+                        // console.log(e.x, 'e.x');
+                        // console.log(leftOffset, 'leftOffset');
+                        el.style.transform = 'translate(' + -e.x + 'px, ' + topOffset + 'px)';
+                        // el.style.transition = 'transform ' + timeInMotion + 's ease-out, bottom ' + timeInMotion + 's ease-out, height ' + timeInMotion + 's ease-out, width ' + timeInMotion + 's ease-out';
+                        // el.classList.add('within-range');
+                    }
+                    if (e.y + topOffset < 1) {
+                        // console.log(e.y, 'e.y');
+                        // console.log(topOffset, 'topOffset');
+                        el.style.transform = 'translate(' + leftOffset + 'px, ' + (-e.y + 50) + 'px)';
+                        // el.classList.add('within-range');
                     }
                                         // console.log(el.style.left, distanceX, 'x after drop, distanceX');
 
