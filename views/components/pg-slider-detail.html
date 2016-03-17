@@ -91,34 +91,53 @@
                                                 </li>
             </ul>
 
+            <span ng-click="generateRandomData()">
+                Generate Random
+            </span>
 
             <div class="field-container">
                 <input class="field lw-full"
                 type="text"
                 name="name"
-                placeholder="main data"
-                ng-model="inputData.main.raw">
+                placeholder="Labels"
+                ng-model="inputData.labels.raw">
             </div>
 
             <div class="btn"
-             ng-click="updateInputData('main')">
-                Submit main
+             ng-click="updateInputData('labels')">
+                Labels
             </div>
 
             <div class="field-container">
                 <input class="field lw-full"
                 type="text"
                 name="name"
-                placeholder="compare data"
+                placeholder="Main data"
+                ng-model="inputData.main.raw">
+            </div>
+
+            {{ inputData.main.raw }}
+
+            <div class="btn"
+             ng-click="updateInputData('main')">
+                Main data
+            </div>
+
+            <div class="field-container">
+                <input class="field lw-full"
+                type="text"
+                name="name"
+                placeholder="Compare data"
                 ng-model="inputData.compare.raw">
             </div>
 
             <div class="btn"
              ng-click="updateInputData('compare')">
-                Submit compare
+                Compare data
             </div>
 
             <chart-line
+             chart-labels="inputData.labels.final"
              chart-data="inputData.main.final || selectedPerson.balances.actualBalance"
              chart-compare-data="inputData.compare.final || selectedPerson.balances.desiredBalance"
              chart-colors="chartColors">

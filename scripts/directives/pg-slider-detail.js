@@ -33,6 +33,10 @@
                     chartColors: ['rgba(0, 170, 221, 0.59)', 'rgba(21, 178, 226, 0.81)'],
                     chartData: [],
                     inputData: {
+                        labels: {
+                            raw: '',
+                            formatted: []
+                        },
                         main: {
                             raw: '',
                             formatted: []
@@ -41,6 +45,12 @@
                             raw: '',
                             formatted: []
                         }
+                    },
+                    generateRandomData: generateRandomData,
+                    randomData: {
+                        labels: [],
+                        main: [],
+                        compare: []
                     },
                     updateInputData: updateInputData
                 });
@@ -70,6 +80,7 @@
                 }
 
                 function updateInputData(mainOrCompare) {
+                    console.log(scope.inputData[mainOrCompare], typeof scope.inputData[mainOrCompare]);
                     scope.inputData[mainOrCompare].formatted = [];
 
                     let i = 0,
@@ -94,6 +105,34 @@
                     function pushData(data) {
                         scope.inputData[mainOrCompare].formatted.push(data || scope.inputData[mainOrCompare].raw);
                         scope.inputData[mainOrCompare].final = scope.inputData[mainOrCompare].formatted;
+                    }
+                }
+
+                function generateRandomData() {
+                    let i = 0,
+                        length = 10;
+
+                    resetRandomData();
+
+                    for (i; i < length; i++) {
+                        scope.randomData.labels.push(randomInt().toString());
+                        scope.randomData.main.push(randomInt());
+                        scope.randomData.compare.push(randomInt());
+                    }
+                    scope.inputData.labels.raw = scope.randomData.labels;
+                    scope.inputData.main.raw = scope.randomData.main;
+                    scope.inputData.compare.raw = scope.randomData.compare;
+
+                    console.log(scope.randomData);
+
+                    function randomInt() {
+                        return Math.floor(Math.random() * 100);
+                    }
+
+                    function resetRandomData() {
+                        scope.randomData.labels = [];
+                        scope.randomData.main = [];
+                        scope.randomData.compare = [];
                     }
                 }
             }

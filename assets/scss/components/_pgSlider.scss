@@ -17,6 +17,7 @@ $slider-arrow-w: 50px;
     &:hover {
         transform: translateY(0);
         background-color: #fff;
+
         .slider-arrow {
             opacity: 1;
         }
@@ -50,21 +51,21 @@ $slider-arrow-w: 50px;
                 color: $color;
             }
         }
+
+        &.disabled {
+            color: #eee;
+            cursor: not-allowed;
+        }
     }
 
     .slider {
-        display: flex;
-        align-items: center;
-        height: 100%;
-        overflow: hidden;
+        white-space: nowrap;
         transition: transform 0.3s ease;
 
         &__slide {
-            flex: none;
-            flex-basis: 20%;
-            height: 60px;
-            line-height: 60px;
+            width: 25%;
             text-align: center;
+            line-height: $slider-h;
             cursor: pointer;
 
             &.is-active {

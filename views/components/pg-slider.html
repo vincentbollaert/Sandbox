@@ -1,14 +1,15 @@
 <div class="slider-wrap">
-
     <div class="slider-arrow
                 slider-arrow--prev
                 js-slide-prev"
+     ng-class="{ 'disabled' : firstSlide }"
      ng-click="slideNavigate('prev')">
         <i class="icon icon-left-open slider-arrow__icon"></i>
     </div>
     <div class="slider-arrow
                 slider-arrow--next
                 js-slide-next"
+     ng-class="{ 'disabled' : lastSlide }"
      ng-click="slideNavigate('next')">
         <i class="icon icon-right-open slider-arrow__icon"></i>
     </div>
