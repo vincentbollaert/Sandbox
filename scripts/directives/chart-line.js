@@ -11,6 +11,7 @@
                 scope: {
                     chartData: '=',
                     chartCompareData: '=',
+                    chartLabels: '=',
                     chartColors: '='
                 },
                 replace: true,
@@ -43,6 +44,7 @@
 
                 scope.$watch('chartData', init);
                 scope.$watch('chartCompareData', init);
+                scope.$watch('chartLabels', init);
 
                 function init() {
                     if (!scope.chartData) {
@@ -56,14 +58,14 @@
                     dataCompare = (scope.chartCompareData ? scope.chartCompareData.map(d => +d) : []);
                     // console.log(dataCompare);
 
-                max = d3.max(data);
-                compareMax = d3.max(dataCompare);
+                    max = d3.max(data);
+                    compareMax = d3.max(dataCompare);
 
-                maxArr.push(max, compareMax);
+                    maxArr.push(max, compareMax);
 
-                // console.log(maxArr);
+                    // console.log(maxArr);
 
-                    labels = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
+                    labels = scope.chartLabels || ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
                     // console.log(data, 'draw graph now');
 
 
